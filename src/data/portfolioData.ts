@@ -24,6 +24,7 @@ export interface Project {
   metrics: string[];
   technologies: string[];
   githubUrl: string;
+  liveDemoUrl?: string;
   status: 'Completed' | 'In Progress' | 'Active Exploration';
   highlights: string[];
 }
@@ -221,6 +222,43 @@ export const PORTFOLIO_DATA = {
   ] as SkillCategory[],
 
   projects: [
+    {
+      id: 'datapulse',
+      title: 'DataPulse',
+      tagline: 'AI-Powered Data Analytics Platform',
+      category: 'Data Engineering',
+      badge: 'FULL-STACK // DATA & AI',
+      description:
+        'A full-stack data analytics platform that transforms sales data into business insights through interactive dashboards, sales trend analysis, regional analytics, and an AI-assisted question interface.',
+      problemSolved:
+        'Replaces fragmented spreadsheets and manual sales reporting with an automated data pipeline, star-schema warehouse, and interactive analytical dashboards with AI query assistance.',
+      architecture: [
+        'Automated Python and Pandas ETL pipeline for schema validation, cleansing, and record quarantining',
+        'Relational star-schema warehouse design (fact_sales, dim_customers, dim_products) with SQLAlchemy',
+        'Asynchronous FastAPI backend providing REST endpoints for KPI metrics and regional performance',
+        'Interactive React 19 and Vite frontend dashboard with interactive charts and an AI-assisted query interface',
+      ],
+      metrics: ['38 Automated Tests Passed', 'Star Schema Warehouse', 'Sub-second API Latency'],
+      technologies: [
+        'React',
+        'Vite',
+        'Python',
+        'FastAPI',
+        'Pandas',
+        'SQLAlchemy',
+        'SQLite',
+        'PostgreSQL',
+      ],
+      githubUrl: 'https://github.com/Manoj-git17/DataPulse',
+      liveDemoUrl: 'https://data-pulse-phi-six.vercel.app',
+      status: 'Completed',
+      highlights: [
+        'End-to-end automated ETL and schema validation pipeline',
+        'Relational star-schema data warehouse modeling',
+        'FastAPI asynchronous REST service with interactive Swagger docs',
+        'Interactive analytics dashboard with AI-assisted natural queries',
+      ],
+    },
     {
       id: 'data-analytics-engine',
       title: 'Exploratory Data Intelligence Pipeline',

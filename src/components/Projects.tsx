@@ -135,17 +135,32 @@ export const Projects: React.FC = () => {
                     <span>View Architecture</span>
                   </button>
 
-                  <a
-                    href={project.githubUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center space-x-1.5 px-3.5 py-2 text-[13px] font-medium text-[#1D1D1F] bg-[#F5F5F7] hover:bg-[#EAEAEA] border border-black/[0.06] rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] min-h-[40px]"
-                    aria-label={`View ${project.title} on GitHub`}
-                  >
-                    <GithubIcon className="w-3.5 h-3.5" />
-                    <span>Repository</span>
-                    <ArrowUpRight className="w-3 h-3 text-[#86868B]" />
-                  </a>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {project.liveDemoUrl && (
+                      <a
+                        href={project.liveDemoUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center justify-center space-x-1.5 px-3.5 py-2 text-[13px] font-medium text-white bg-[#0071E3] hover:bg-[#0077ED] rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] min-h-[40px] shadow-xs"
+                        aria-label={`View live demo of ${project.title}`}
+                      >
+                        <span>Live Demo</span>
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center space-x-1.5 px-3.5 py-2 text-[13px] font-medium text-[#1D1D1F] bg-[#F5F5F7] hover:bg-[#EAEAEA] border border-black/[0.06] rounded-full transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3] min-h-[40px]"
+                      aria-label={`View ${project.title} on GitHub`}
+                    >
+                      <GithubIcon className="w-3.5 h-3.5" />
+                      <span>Repository</span>
+                      <ArrowUpRight className="w-3 h-3 text-[#86868B]" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>

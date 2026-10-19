@@ -54,13 +54,15 @@ TECHNICAL SKILLS:
 - AI: Machine Learning Fundamentals, AI Application Development
 
 SELECTED PROJECTS:
-1. Exploratory Data Intelligence Pipeline (Python, SQL, Pandas)
+1. DataPulse (React, Python, FastAPI, Pandas, PostgreSQL)
+   Full-stack AI-assisted data analytics platform transforming sales data into business insights.
+2. Exploratory Data Intelligence Pipeline (Python, SQL, Pandas)
    Modular pipeline for automated ingestion, outlier detection, and statistical profiling.
-2. Predictive Classifier & Evaluation Lab (Python, Scikit-Learn)
+3. Predictive Classifier & Evaluation Lab (Python, Scikit-Learn)
    Systematic evaluation of classification algorithms with cross-validation benchmarks.
-3. Minimalist Engineering Metrics Dashboard (React, TypeScript, Tailwind)
+4. Minimalist Engineering Metrics Dashboard (React, TypeScript, Tailwind)
    Responsive web application visualizing algorithmic benchmarks.
-4. Algorithms & Computational Graph Explorer (C++)
+5. Algorithms & Computational Graph Explorer (C++)
    Clean implementations of data structures, graph traversals, and complexity benchmarks.
 `.trim();
 

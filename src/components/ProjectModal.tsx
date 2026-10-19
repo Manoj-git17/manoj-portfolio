@@ -168,16 +168,30 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
             Close
           </button>
 
-          <a
-            href={project.githubUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="w-full xs:w-auto min-h-[44px] inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 bg-[#1D1D1F] text-white text-[13px] font-medium rounded-full hover:bg-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]"
-          >
-            <GithubIcon className="w-3.5 h-3.5" />
-            <span>View Source Code</span>
-            <ArrowUpRight className="w-3.5 h-3.5" />
-          </a>
+          <div className="flex flex-col xs:flex-row items-center gap-2 w-full xs:w-auto">
+            {project.liveDemoUrl && (
+              <a
+                href={project.liveDemoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full xs:w-auto min-h-[44px] inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 bg-[#0071E3] text-white text-[13px] font-medium rounded-full hover:bg-[#0077ED] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]"
+              >
+                <span>Live Demo</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
+              </a>
+            )}
+
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="w-full xs:w-auto min-h-[44px] inline-flex items-center justify-center space-x-1.5 px-4 py-2.5 bg-[#1D1D1F] text-white text-[13px] font-medium rounded-full hover:bg-black transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0071E3]"
+            >
+              <GithubIcon className="w-3.5 h-3.5" />
+              <span>View Source Code</span>
+              <ArrowUpRight className="w-3.5 h-3.5" />
+            </a>
+          </div>
         </div>
       </div>
     </div>
