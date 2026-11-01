@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { X, Printer, Copy, Check } from 'lucide-react';
+import { X, Printer, Copy, Check, ExternalLink } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
 
 interface ResumeModalProps {
@@ -71,6 +71,34 @@ SELECTED PROJECTS:
     setTimeout(() => setCopied(false), 2000);
   };
 
+  const projectsResumeList = [
+    {
+      title: 'DataPulse',
+      stack: 'React, Python, FastAPI, Pandas, PostgreSQL',
+      desc: 'Full-stack AI-assisted data analytics platform transforming sales data into business insights.',
+    },
+    {
+      title: 'Exploratory Data Intelligence Pipeline',
+      stack: 'Python, SQL, Pandas',
+      desc: 'Modular pipeline for automated ingestion, outlier detection, and statistical profiling.',
+    },
+    {
+      title: 'Predictive Classifier & Evaluation Lab',
+      stack: 'Python, Scikit-Learn',
+      desc: 'Systematic evaluation of classification algorithms with cross-validation benchmarks.',
+    },
+    {
+      title: 'Minimalist Engineering Metrics Dashboard',
+      stack: 'React, TypeScript, Tailwind',
+      desc: 'Responsive web application visualizing algorithmic benchmarks.',
+    },
+    {
+      title: 'Algorithms & Computational Graph Explorer',
+      stack: 'C++',
+      desc: 'Clean implementations of data structures, graph traversals, and complexity benchmarks.',
+    },
+  ];
+
   return (
     <div
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/50 backdrop-blur-md animate-in fade-in duration-200"
@@ -135,83 +163,85 @@ SELECTED PROJECTS:
         <div className="overflow-y-auto px-4 sm:px-8 md:px-12 py-6 sm:py-10 text-[#1D1D1F] space-y-6 sm:space-y-8 select-text">
           {/* Header */}
           <div className="border-b border-black/[0.08] pb-5 sm:pb-6">
-            <h1 id="resume-title" className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[#1D1D1F] break-words">
+            <h1 id="resume-title" className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-[#1D1D1F] break-words uppercase font-display">
               {PORTFOLIO_DATA.personal.name}
             </h1>
             <p className="text-[14.5px] sm:text-[16px] text-[#424245] mt-1 font-medium break-words">
               {PORTFOLIO_DATA.personal.role}
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] sm:text-[13px] text-[#6E6E73] mt-2.5 font-mono">
+              <span>Expected Graduation: {PORTFOLIO_DATA.personal.expectedGraduation}</span>
+              <span>•</span>
+              <span>Location: India</span>
+              <span>•</span>
               <span className="break-all">{PORTFOLIO_DATA.personal.email}</span>
               <span>•</span>
-              <a href={PORTFOLIO_DATA.personal.github} target="_blank" rel="noreferrer" className="hover:text-[#0071E3] underline">
-                GitHub
+              <a href={PORTFOLIO_DATA.personal.github} target="_blank" rel="noreferrer" className="hover:text-[#0E0E0E] underline inline-flex items-center gap-0.5">
+                GitHub <ExternalLink className="w-3 h-3" />
               </a>
               <span>•</span>
-              <a href={PORTFOLIO_DATA.personal.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#0071E3] underline">
-                LinkedIn
+              <a href={PORTFOLIO_DATA.personal.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#0E0E0E] underline inline-flex items-center gap-0.5">
+                LinkedIn <ExternalLink className="w-3 h-3" />
               </a>
-              <span>•</span>
-              <span>Graduation: {PORTFOLIO_DATA.personal.expectedGraduation}</span>
             </div>
           </div>
 
-          {/* Education Section */}
+          {/* Academic Education Section */}
           <div className="space-y-2.5 sm:space-y-3">
-            <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5">
-              Education
+            <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5 font-bold">
+              ACADEMIC EDUCATION
             </h2>
-            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
-              <div>
+            <div className="space-y-1.5">
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-1">
                 <h3 className="text-[15px] sm:text-[16px] font-semibold text-[#1D1D1F] break-words">
                   {PORTFOLIO_DATA.education.degree}
                 </h3>
-                <p className="text-[13px] sm:text-[14px] text-[#6E6E73] mt-0.5">
-                  Academic Focus: Artificial Intelligence, Data Engineering, Software Systems
-                </p>
+                <span className="text-[12px] sm:text-[13px] font-mono text-[#86868B] shrink-0 mt-0.5 sm:mt-0 font-medium">
+                  {PORTFOLIO_DATA.education.timeline} (Exp. {PORTFOLIO_DATA.education.expectedGraduation})
+                </span>
               </div>
-              <span className="text-[12px] sm:text-[13px] font-mono text-[#86868B] shrink-0 mt-0.5 sm:mt-0">
-                {PORTFOLIO_DATA.education.timeline} (Exp. {PORTFOLIO_DATA.education.expectedGraduation})
-              </span>
+              <p className="text-[13px] sm:text-[14px] text-[#555558] leading-relaxed">
+                <strong className="text-[#1D1D1F] font-semibold">Key Focus:</strong> Data Structures, Algorithms, Mathematics, Database Systems, Machine Learning Foundations
+              </p>
             </div>
           </div>
 
           {/* Technical Skills */}
           <div className="space-y-2.5 sm:space-y-3">
-            <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5">
-              Technical Capabilities
+            <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5 font-bold">
+              TECHNICAL SKILLS
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 text-[13.5px] sm:text-[14px]">
               <div>
-                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5">
+                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
                   Programming:
                 </strong>
                 <p className="text-[#555558]">Python, JavaScript / TypeScript, C++</p>
               </div>
               <div>
-                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5">
-                  Web &amp; UI:
+                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
+                  Web:
                 </strong>
                 <p className="text-[#555558]">HTML, CSS, React, Tailwind CSS</p>
               </div>
               <div>
-                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5">
-                  Data &amp; Databases:
+                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
+                  Data:
                 </strong>
-                <p className="text-[#555558]">SQL, Database Fundamentals, Data Analysis</p>
+                <p className="text-[#555558]">SQL, Database Fundamentals, Exploratory Data Analysis</p>
               </div>
               <div>
-                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5">
-                  Tools &amp; Environment:
+                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
+                  Tools:
                 </strong>
-                <p className="text-[#555558]">Git, GitHub, VS Code, Linux basics</p>
+                <p className="text-[#555558]">Git, GitHub, VS Code</p>
               </div>
               <div className="sm:col-span-2">
-                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5">
-                  Artificial Intelligence:
+                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
+                  AI:
                 </strong>
                 <p className="text-[#555558]">
-                  Machine learning fundamentals, model evaluation metrics, AI application development
+                  Machine Learning Fundamentals, AI Application Development
                 </p>
               </div>
             </div>
@@ -219,31 +249,31 @@ SELECTED PROJECTS:
 
           {/* Selected Projects */}
           <div className="space-y-3 sm:space-y-4">
-            <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5">
-              Selected Technical Projects
+            <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5 font-bold">
+              SELECTED PROJECTS
             </h2>
             <div className="space-y-3 sm:space-y-4">
-              {PORTFOLIO_DATA.projects.map((proj) => (
-                <div key={proj.id} className="space-y-1">
+              {projectsResumeList.map((proj, idx) => (
+                <div key={idx} className="space-y-0.5">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-0.5">
                     <h3 className="text-[14.5px] sm:text-[15px] font-semibold text-[#1D1D1F] break-words">
-                      {proj.title}
+                      {idx + 1}. {proj.title}
                     </h3>
                     <span className="text-[11.5px] sm:text-[12px] font-mono text-[#86868B]">
-                      {proj.technologies.slice(0, 3).join(' • ')}
+                      ({proj.stack})
                     </span>
                   </div>
-                  <p className="text-[12.5px] sm:text-[13px] text-[#555558] leading-relaxed">
-                    {proj.description}
+                  <p className="text-[12.5px] sm:text-[13px] text-[#555558] leading-relaxed pl-4">
+                    {proj.desc}
                   </p>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Academic Philosophy Note */}
+          {/* Academic Note */}
           <div className="pt-3 sm:pt-4 border-t border-black/[0.06] text-[11.5px] sm:text-[12px] text-[#86868B] italic">
-            This academic profile communicates active undergraduate coursework and engineering projects. No unsupported claims or unverified credentials.
+            This profile communicates active undergraduate coursework and engineering projects. Verified GitHub and repository commits.
           </div>
         </div>
       </div>

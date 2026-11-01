@@ -1,8 +1,16 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", "Helvetica Neue", sans-serif;
-  --font-mono: "SF Mono", "JetBrains Mono", Menlo, Monaco, Consolas, monospace;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", "SF Mono", Menlo, Monaco, Consolas, monospace;
+  --font-display: "Anton", "Bebas Neue", sans-serif;
+  --font-bebas: "Bebas Neue", "Anton", sans-serif;
+  --font-serif: "Instrument Serif", Georgia, serif;
+
+  --color-cream: #F2EFE6;
+  --color-near-black: #0E0E0E;
+  --color-yellow: #FFD60A;
+  --color-red: #E5321B;
 
   --color-surface-base: #FFFFFF;
   --color-surface-subtle: #FBFBFD;
@@ -23,6 +31,60 @@
   --color-border-light: #E5E5EA;
 
   --breakpoint-xs: 420px;
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+  }
+  .font-bebas {
+    font-family: var(--font-bebas);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .bg-cream {
+    background-color: var(--color-cream);
+  }
+  .bg-near-black {
+    background-color: var(--color-near-black);
+  }
+  .bg-yellow-sig {
+    background-color: var(--color-yellow);
+  }
+  .text-cream {
+    color: var(--color-cream);
+  }
+  .text-near-black {
+    color: var(--color-near-black);
+  }
+  .text-yellow-sig {
+    color: var(--color-yellow);
+  }
+  .text-red-sig {
+    color: var(--color-red);
+  }
+  .border-cream-subtle {
+    border-color: rgba(242, 239, 230, 0.15);
+  }
+  .border-dark-subtle {
+    border-color: rgba(14, 14, 14, 0.12);
+  }
+  .text-stroke-light {
+    -webkit-text-stroke: 1.5px rgba(242, 239, 230, 0.3);
+    color: transparent;
+  }
+  .text-stroke-light-bold {
+    -webkit-text-stroke: 2px rgba(242, 239, 230, 0.5);
+    color: transparent;
+  }
+  .text-stroke-dark {
+    -webkit-text-stroke: 1.5px rgba(14, 14, 14, 0.35);
+    color: transparent;
+  }
 }
 
 @layer base {
@@ -115,6 +177,38 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: #A1A1A6;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 28s linear infinite;
+}
+
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+@keyframes float-gentle {
+  0%, 100% {
+    transform: translateY(0px) rotate(var(--sticker-rot, 0deg));
+  }
+  50% {
+    transform: translateY(-8px) rotate(var(--sticker-rot, 0deg));
+  }
+}
+
+.animate-float-gentle {
+  animation: float-gentle 4s ease-in-out infinite;
 }
 
 /* Print Stylesheet for pristine PDF export of Academic CV */

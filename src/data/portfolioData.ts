@@ -39,11 +39,11 @@ export const PORTFOLIO_DATA = {
   personal: {
     name: 'Manoj',
     wordmark: 'MANOJ',
-    role: 'AI & Data Science Engineering Student',
+    role: 'Artificial Intelligence & Data Science Engineering Student',
     expectedGraduation: '2029',
     bioHeadline: 'Curiosity into code. Ideas into impact.',
     bioSubtitle:
-      "I'm Manoj, an AI & Data Science engineering student passionate about building useful software, exploring intelligent systems, and solving problems through technology.",
+      "I'm Manoj, an Artificial Intelligence & Data Science engineering student passionate about building useful software, exploring intelligent systems, and solving problems through technology.",
     aboutParagraphs: [
       "I'm an Artificial Intelligence and Data Science engineering student interested in the intersection of software engineering, data, and intelligent systems.",
       'I enjoy learning how technology works, developing my programming skills, and turning ideas into practical projects.',
@@ -54,7 +54,14 @@ export const PORTFOLIO_DATA = {
     email: 'manojps60281@gmail.com',
     github: 'https://github.com/manoj-dev-ai',
     linkedin: 'https://linkedin.com/in/manoj-aids',
-    location: 'India',
+    location: 'Bengaluru, Karnataka, India',
+    targetRole: 'AI & Data Engineering / Software Engineering Intern',
+    internshipAvailability: 'Available for internships from Summer 2027',
+    isOpenToWork: true,
+    codingProfiles: {
+      leetcode: '', // TODO: Add your LeetCode username when ready (e.g. 'manoj_17')
+      hackerrank: '', // TODO: Add your HackerRank username when ready
+    },
   },
 
   principles: [
@@ -110,21 +117,21 @@ export const PORTFOLIO_DATA = {
     {
       title: 'Web Technologies',
       category: 'Web',
-      description: 'Building clean, accessible interfaces and responsive computational dashboards.',
+      description: 'Building clean, accessible interfaces and responsive full-stack applications.',
       items: [
         {
-          name: 'React',
-          level: 'Intermediate',
+          name: 'React.js & Vite',
+          level: 'Proficient',
           note: 'Component architecture & state patterns',
           practicalApplication:
             'Custom hooks, optimistic UI state updates, modular design systems, and fast client-side rendering with minimal re-render footprints.',
         },
         {
-          name: 'HTML5 & CSS3',
-          level: 'Proficient',
-          note: 'Semantic markup & responsive layouts',
+          name: 'Express.js & Node.js',
+          level: 'Intermediate',
+          note: 'REST APIs, middleware & auth',
           practicalApplication:
-            'Accessible DOM hierarchy (ARIA), CSS Grid & Flexbox, micro-animations, and fluid responsive viewports.',
+            'Constructing modular backend APIs, handling CORS, JSON validation, error logging, and connecting persistent database drivers.',
         },
         {
           name: 'Tailwind CSS',
@@ -141,9 +148,9 @@ export const PORTFOLIO_DATA = {
       description: 'Structuring schemas, querying relational engines, and extracting statistical intelligence.',
       items: [
         {
-          name: 'SQL',
+          name: 'SQL & SQLite',
           level: 'Intermediate',
-          note: 'Complex queries & schema normalization',
+          note: 'Complex queries, schema design & ACID storage',
           practicalApplication:
             'Multi-table joins, subqueries, grouping aggregations, window functions, and indexing strategies for analytical retrieval.',
         },
@@ -155,7 +162,7 @@ export const PORTFOLIO_DATA = {
             'Entity-relationship modeling, 3NF normalization, constraint enforcement, and transactional integrity guarantees.',
         },
         {
-          name: 'Data Analysis',
+          name: 'Exploratory Data Analysis',
           level: 'Intermediate',
           note: 'Data cleaning, EDA, aggregation',
           practicalApplication:
@@ -197,18 +204,18 @@ export const PORTFOLIO_DATA = {
       description: 'Applied machine learning pipelines, model evaluation, and modern AI application prototyping.',
       items: [
         {
+          name: 'Google Gemini API & LLMs',
+          level: 'Active Practice',
+          note: 'Task decomposition, planning & structured generation',
+          practicalApplication:
+            'Integrating Google Gemini for multi-step task breakdown, automated daily plan generation, structured JSON extraction, and context-aware productivity analysis.',
+        },
+        {
           name: 'Machine Learning Fundamentals',
           level: 'Active Study',
           note: 'Supervised/unsupervised models & regression',
           practicalApplication:
             'Mathematical intuition for cost functions, gradient descent, classification boundaries, bias-variance trade-offs, and regularization.',
-        },
-        {
-          name: 'AI Application Development',
-          level: 'Active Study',
-          note: 'API integrations & retrieval structuring',
-          practicalApplication:
-            'Integrating modern LLM APIs, structured JSON output extraction, context chunking, and embedding similarity workflows.',
         },
         {
           name: 'Data Modeling & Metrics',
@@ -229,7 +236,7 @@ export const PORTFOLIO_DATA = {
       category: 'Data Engineering',
       badge: 'FULL-STACK // DATA & AI',
       description:
-        'A full-stack data analytics platform that transforms sales data into business insights through interactive dashboards, sales trend analysis, regional analytics, and an AI-assisted question interface.',
+        'Full-stack AI-assisted data analytics platform transforming sales data into business insights.',
       problemSolved:
         'Replaces fragmented spreadsheets and manual sales reporting with an automated data pipeline, star-schema warehouse, and interactive analytical dashboards with AI query assistance.',
       architecture: [
@@ -241,13 +248,13 @@ export const PORTFOLIO_DATA = {
       metrics: ['38 Automated Tests Passed', 'Star Schema Warehouse', 'Sub-second API Latency'],
       technologies: [
         'React',
-        'Vite',
         'Python',
         'FastAPI',
         'Pandas',
-        'SQLAlchemy',
-        'SQLite',
         'PostgreSQL',
+        'SQLAlchemy',
+        'Vite',
+        'SQLite',
       ],
       githubUrl: 'https://github.com/Manoj-git17/DataPulse',
       liveDemoUrl: 'https://data-pulse-phi-six.vercel.app',
@@ -260,13 +267,56 @@ export const PORTFOLIO_DATA = {
       ],
     },
     {
+      id: 'taskflow',
+      title: 'TaskFlow – AI-Powered Task Manager',
+      tagline: 'AI-powered task management SaaS that plans your day, breaks down complex work and analyzes your productivity.',
+      category: 'AI & Machine Learning',
+      badge: 'AI SAAS // GEMINI POWERED',
+      description:
+        'TaskFlow uses Google Gemini to help users intelligently organize their work, generate personalized daily plans, break complex tasks into manageable steps, and analyze productivity.',
+      problemSolved:
+        'Eliminates decision paralysis and disorganized project backlog by delegating daily schedule planning and task decomposition to Gemini AI with real-time productivity diagnostics.',
+      architecture: [
+        'Responsive React.js and Vite client with modular component architecture and JWT state storage',
+        'Express.js & Node.js REST API layer handling task CRUD operations and secure user authorization',
+        'Google Gemini API integration with structured prompt engineering for automated task breakdown and schedule synthesis',
+        'Relational SQLite database modeling user profiles, task hierarchies, priority matrices, and productivity timestamps',
+      ],
+      metrics: [
+        'Google Gemini 1.5 Integration',
+        'Full JWT Auth Lifecycle',
+        'Sub-second Task Breakdown Engine',
+      ],
+      technologies: [
+        'React.js',
+        'Vite',
+        'Node.js',
+        'Express.js',
+        'SQLite',
+        'Google Gemini API',
+        'JWT Authentication',
+        'Tailwind CSS',
+      ],
+      githubUrl: 'https://github.com/Manoj-git17/ai-task-manager',
+      liveDemoUrl: 'https://ai-task-manager-frontend-x3og.onrender.com',
+      status: 'Completed',
+      highlights: [
+        'Gemini-powered intelligent task planning',
+        'AI task breakdown and prioritization',
+        'Smart task management with deadlines',
+        'Productivity analytics dashboard',
+        'Secure authentication',
+        'Responsive SaaS UI',
+      ],
+    },
+    {
       id: 'data-analytics-engine',
       title: 'Exploratory Data Intelligence Pipeline',
       tagline: 'Automated data ingestion, sanitization, and statistical summary engine',
       category: 'Data Engineering',
       badge: 'PIPELINE // MODULAR',
       description:
-        'A modular Python pipeline designed to ingest heterogeneous tabular datasets, handle missing values systematically, compute descriptive distributions, and export structured statistical reports.',
+        'Modular pipeline for automated ingestion, outlier detection, and statistical profiling.',
       problemSolved:
         'Reduces the boilerplate required during initial exploratory data analysis by producing automated distribution profiles, outlier warnings, and correlation matrices.',
       architecture: [
@@ -276,7 +326,7 @@ export const PORTFOLIO_DATA = {
         'Automated metric generation with clean Markdown and HTML exports',
       ],
       metrics: ['Memory-efficient chunk processing', 'Zero data leakage', 'Deterministic transforms'],
-      technologies: ['Python', 'SQL', 'Pandas', 'NumPy', 'Data Analysis'],
+      technologies: ['Python', 'SQL', 'Pandas'],
       githubUrl: 'https://github.com/manoj-dev-ai/data-pipeline-insights',
       status: 'Completed',
       highlights: [
@@ -292,7 +342,7 @@ export const PORTFOLIO_DATA = {
       category: 'AI & Machine Learning',
       badge: 'ML BENCHMARK // RIGOROUS',
       description:
-        'An experimental machine learning workbench comparing baseline classification algorithms (logistic regression, decision trees, k-NN) against feature engineering variations with rigorous cross-validation.',
+        'Systematic evaluation of classification algorithms with cross-validation benchmarks.',
       problemSolved:
         'Clarifies the exact trade-offs between model complexity, inference latency, and precision-recall trade-offs across balanced and unbalanced synthetic datasets.',
       architecture: [
@@ -302,7 +352,7 @@ export const PORTFOLIO_DATA = {
         'Plain-text model interpretability and feature importance rankings',
       ],
       metrics: ['Stratified 5-Fold validation', 'Sub-millisecond inference', 'Transparent logs'],
-      technologies: ['Python', 'Scikit-Learn', 'Matplotlib', 'Machine Learning'],
+      technologies: ['Python', 'Scikit-Learn'],
       githubUrl: 'https://github.com/manoj-dev-ai/ml-classifier-lab',
       status: 'Completed',
       highlights: [
@@ -318,7 +368,7 @@ export const PORTFOLIO_DATA = {
       category: 'Web Development',
       badge: 'FRONTEND // 100% TYPE-SAFE',
       description:
-        'A clean, responsive single-page web application inspired by Apple aesthetics for visualizing computational benchmarks, execution latencies, and algorithmic performance metrics.',
+        'Responsive web application visualizing algorithmic benchmarks.',
       problemSolved:
         'Provides a distraction-free, accessible interface for inspecting experiment runs without overwhelming dashboard clutter.',
       architecture: [
@@ -328,7 +378,7 @@ export const PORTFOLIO_DATA = {
         'Lightweight SVG vector charts with smooth micro-interactions',
       ],
       metrics: ['Lighthouse: 100 Performance', 'Sub-second initial paint', 'Accessible ARIA markup'],
-      technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'],
+      technologies: ['React', 'TypeScript', 'Tailwind'],
       githubUrl: 'https://github.com/manoj-dev-ai/metrics-dashboard',
       status: 'Completed',
       highlights: [
@@ -344,7 +394,7 @@ export const PORTFOLIO_DATA = {
       category: 'Systems & Algorithms',
       badge: 'SYSTEMS // ASYMPTOTIC OPTIMAL',
       description:
-        'A disciplined collection of well-documented C++ implementations covering balanced search trees, graph traversal algorithms (BFS, DFS, Dijkstra), dynamic programming patterns, and empirical runtime benchmarks.',
+        'Clean implementations of data structures, graph traversals, and complexity benchmarks.',
       problemSolved:
         'Solidifies deep mechanical sympathy for memory locality, pointer manipulation, and asymptotic computational complexity.',
       architecture: [
@@ -354,7 +404,7 @@ export const PORTFOLIO_DATA = {
         'Empirical validation against theoretical Big-O curves',
       ],
       metrics: ['Zero memory leaks (Valgrind verified)', 'O(V + E) traversals', 'Modern C++17'],
-      technologies: ['C++', 'Algorithms', 'Data Structures', 'Git'],
+      technologies: ['C++'],
       githubUrl: 'https://github.com/manoj-dev-ai/algorithmic-systems',
       status: 'Completed',
       highlights: [
@@ -370,6 +420,7 @@ export const PORTFOLIO_DATA = {
     status: 'Undergraduate Engineering Student',
     expectedGraduation: '2029',
     timeline: '2025 – 2029',
+    keyFocus: 'Data Structures, Algorithms, Mathematics, Database Systems, Machine Learning Foundations',
     overview:
       'Pursuing a comprehensive curriculum combining core computer science foundations, discrete mathematics, statistical modeling, and modern computational data architectures.',
     coursework: [
@@ -396,3 +447,6 @@ export const PORTFOLIO_DATA = {
     ],
   },
 };
+
+export const TOTAL_PROJECTS_COUNT = PORTFOLIO_DATA.projects.length;
+export const FLAGSHIP_PROJECTS_COUNT = 4;
