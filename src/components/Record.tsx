@@ -100,7 +100,7 @@ export const Record: React.FC = () => {
   return (
     <section
       id="record"
-      className="relative bg-[#FFD60A] text-[#0E0E0E] py-20 sm:py-28 lg:py-36 border-t-2 border-b-2 border-[#0E0E0E] overflow-hidden selection:bg-[#0E0E0E] selection:text-[#FFD60A]"
+      className="relative bg-[#FFD60A] text-[#0E0E0E] py-14 sm:py-28 lg:py-36 border-t-2 border-b-2 border-[#0E0E0E] overflow-hidden selection:bg-[#0E0E0E] selection:text-[#FFD60A]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
@@ -124,8 +124,8 @@ export const Record: React.FC = () => {
           </p>
         </div>
 
-        {/* Big Animated Counters Grid */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-16 sm:mb-20">
+        {/* Big Animated Counters Grid - 1-2 cols on mobile, 4 on desktop */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12 sm:mb-20">
           {stats.map((stat, i) => (
             <div
               key={i}

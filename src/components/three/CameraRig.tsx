@@ -39,12 +39,21 @@ export const CameraRig: React.FC<CameraRigProps> = ({ scrollProgress }) => {
     // Smooth cosine ease between waypoints
     const easedFactor = (1 - Math.cos(factor * Math.PI)) / 2;
 
-    // Only apply subtle camera sway during the deep flythrough (p > 0.15), not in the hero where the photo handles localized parallax
-    const cameraPointerInfluence = p > 0.15 ? Math.min(1, (p - 0.15) * 4) : 0;
+    // Slow cinematic camera drift in hero, subtle pointer sway during deep flythrough
+    const heroDriftX = p < 0.18 ? Math.sin(state.clock.elapsedTime * 0.35) * 0.14 : 0;
+    const heroDriftY = p < 0.18 ? Math.cos(state.clock.elapsedTime * 0.28) * 0.08 : 0;
+    const cameraPointerInfluence = p > 0.18 ? Math.min(1, (p - 0.18) * 4) : 0;
+
     const targetPosX =
-      start.pos[0] + (end.pos[0] - start.pos[0]) * easedFactor + (state.pointer.x * 0.25 * cameraPointerInfluence);
+      start.pos[0] +
+      (end.pos[0] - start.pos[0]) * easedFactor +
+      heroDriftX +
+      state.pointer.x * 0.25 * cameraPointerInfluence;
     const targetPosY =
-      start.pos[1] + (end.pos[1] - start.pos[1]) * easedFactor + (state.pointer.y * 0.2 * cameraPointerInfluence);
+      start.pos[1] +
+      (end.pos[1] - start.pos[1]) * easedFactor +
+      heroDriftY +
+      state.pointer.y * 0.2 * cameraPointerInfluence;
     const targetPosZ = start.pos[2] + (end.pos[2] - start.pos[2]) * easedFactor;
 
     const targetLookX = start.look[0] + (end.look[0] - start.look[0]) * easedFactor;

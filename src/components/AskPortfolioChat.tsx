@@ -271,13 +271,18 @@ export const AskPortfolioChat: React.FC = () => {
 
   return (
     <div
-      className={`fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 transition-all duration-300 ${
+      className={`fixed z-50 transition-all duration-300 ${
         isScrolling && !isOpen ? 'opacity-20 translate-y-3 pointer-events-none' : 'opacity-100 translate-y-0'
       }`}
+      style={{
+        bottom: 'max(24px, env(safe-area-inset-bottom, 24px))',
+        right: 'max(16px, env(safe-area-inset-right, 16px))',
+      }}
+      id="ask-portfolio-chat-btn"
     >
       {/* Expanded Chat Drawer */}
       {isOpen && (
-        <div className="mb-4 w-[calc(100vw-2.5rem)] sm:w-[420px] h-[550px] max-h-[82vh] bg-[#121212] border-2 border-[#FFD60A] rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200">
+        <div className="mb-4 w-[calc(100vw-2rem)] sm:w-[420px] h-[500px] sm:h-[550px] max-h-[80svh] bg-[#121212] border-2 border-[#FFD60A] rounded-2xl shadow-2xl flex flex-col overflow-hidden animate-in fade-in slide-in-from-bottom-4 duration-200">
           {/* Header */}
           <div className="px-4 py-3 bg-[#1A1A1A] border-b border-[#F2EFE6]/10 flex items-center justify-between">
             <div className="flex items-center gap-2.5">
@@ -416,7 +421,7 @@ export const AskPortfolioChat: React.FC = () => {
       {/* High-Contrast Floating Launcher Button: Dark text on signature yellow */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="group flex items-center gap-2.5 px-4 py-3 rounded-full bg-[#FFD60A] text-[#0E0E0E] font-bold border-2 border-[#0E0E0E] hover:bg-[#ffe043] shadow-[0_10px_35px_rgba(0,0,0,0.45)] transition-all duration-300 hover:scale-105 cursor-pointer"
+        className="group flex items-center gap-2 sm:gap-2.5 px-3 sm:px-4 py-2.5 sm:py-3 rounded-full bg-[#FFD60A] text-[#0E0E0E] font-bold border-2 border-[#0E0E0E] hover:bg-[#ffe043] shadow-[0_10px_35px_rgba(0,0,0,0.45)] transition-all duration-300 hover:scale-105 cursor-pointer min-h-[44px]"
         aria-label="Ask My Portfolio AI Chat"
       >
         <div className="relative">
@@ -426,8 +431,8 @@ export const AskPortfolioChat: React.FC = () => {
             <span className="relative inline-flex rounded-full h-2 w-2 bg-[#E5321B]"></span>
           </span>
         </div>
-        <span className="font-mono text-xs font-bold uppercase tracking-wider text-[#0E0E0E]">
-          {isOpen ? 'CLOSE DOSSIER CHAT' : 'ASK PORTFOLIO // AI'}
+        <span className="font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#0E0E0E]">
+          {isOpen ? 'CLOSE' : <><span className="hidden sm:inline">ASK PORTFOLIO // </span>AI</>}
         </span>
       </button>
     </div>

@@ -21,6 +21,7 @@ export const HireMe: React.FC<HireMeProps> = ({ onOpenResume }) => {
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (window.innerWidth <= 768) return;
     if (!buttonRef.current) return;
     const rect = buttonRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -183,10 +184,10 @@ export const HireMe: React.FC<HireMeProps> = ({ onOpenResume }) => {
               </div>
             </div>
 
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-2">
               <button
                 onClick={handleCopyEmail}
-                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full bg-[#0E0E0E] text-[#F2EFE6] hover:bg-[#FFD60A] hover:text-[#0E0E0E] font-mono text-xs font-bold uppercase transition-colors cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-[#0E0E0E] text-[#F2EFE6] hover:bg-[#FFD60A] hover:text-[#0E0E0E] font-mono text-xs font-bold uppercase transition-colors cursor-pointer min-h-[44px]"
               >
                 {copied ? (
                   <>
@@ -203,7 +204,7 @@ export const HireMe: React.FC<HireMeProps> = ({ onOpenResume }) => {
 
               <a
                 href={`mailto:${email}`}
-                className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-transparent border border-[#0E0E0E] hover:bg-[#0E0E0E]/10 font-mono text-xs font-bold uppercase transition-colors"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-full bg-transparent border border-[#0E0E0E] hover:bg-[#0E0E0E]/10 font-mono text-xs font-bold uppercase transition-colors min-h-[44px]"
               >
                 <span>Launch Mail</span>
                 <Send className="w-3 h-3 text-[#6B6862]" />
@@ -222,12 +223,12 @@ export const HireMe: React.FC<HireMeProps> = ({ onOpenResume }) => {
               </p>
             </div>
 
-            <div className="flex flex-wrap gap-2.5 pt-2">
+            <div className="flex flex-col sm:flex-row flex-wrap gap-2.5 pt-2">
               <a
                 href={PORTFOLIO_DATA.personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0E0E0E] hover:bg-[#0E0E0E] hover:text-[#F2EFE6] font-mono text-xs font-bold uppercase transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full border border-[#0E0E0E] hover:bg-[#0E0E0E] hover:text-[#F2EFE6] font-mono text-xs font-bold uppercase transition-all min-h-[44px]"
               >
                 <GithubIcon className="w-3.5 h-3.5" />
                 <span>GitHub</span>
@@ -238,7 +239,7 @@ export const HireMe: React.FC<HireMeProps> = ({ onOpenResume }) => {
                 href={PORTFOLIO_DATA.personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#0E0E0E] hover:bg-[#0E0E0E] hover:text-[#F2EFE6] font-mono text-xs font-bold uppercase transition-all"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full border border-[#0E0E0E] hover:bg-[#0E0E0E] hover:text-[#F2EFE6] font-mono text-xs font-bold uppercase transition-all min-h-[44px]"
               >
                 <LinkedinIcon className="w-3.5 h-3.5" />
                 <span>LinkedIn</span>
@@ -247,11 +248,11 @@ export const HireMe: React.FC<HireMeProps> = ({ onOpenResume }) => {
 
               <button
                 onClick={onOpenResume}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFD60A] text-[#0E0E0E] hover:bg-[#ffe043] font-mono text-xs font-bold uppercase transition-all cursor-pointer shadow-xs"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-3 rounded-full bg-[#FFD60A] text-[#0E0E0E] hover:bg-[#ffe043] font-mono text-xs font-bold uppercase transition-all cursor-pointer shadow-xs min-h-[44px]"
               >
                 <FileText className="w-3.5 h-3.5" />
                 <span>Academic CV</span>
-                <span className="text-[10px]">↗</span>
+                <ArrowUpRight className="w-3 h-3" />
               </button>
             </div>
           </div>

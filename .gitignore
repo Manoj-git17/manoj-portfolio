@@ -30,3 +30,8 @@ desktop.ini
 *.njsproj
 *.sln
 *.sw?
+
+# Local test screenshots
+screenshot-*.png
+ss-*.png
+test-*.png

@@ -1,10 +1,7 @@
 import React, { Suspense, useState, useEffect } from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
-import { HeroLayeredPhoto } from './HeroLayeredPhoto';
-import { LiquidMetalOrb } from './LiquidMetalOrb';
-import { TechTagsOrbit } from './TechTagsOrbit';
-import { YellowParticleDust } from './YellowParticleDust';
+import { DarkRoomHero } from './DarkRoomHero';
 import { DataTunnelStream } from './DataTunnelStream';
 import { ProjectsRing } from './ProjectsRing';
 import { BarCity3D } from './BarCity3D';
@@ -25,7 +22,7 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
 }) => {
   const [scrollProgress, setScrollProgress] = useState<number>(0);
   const [isMobile] = useState<boolean>(
-    () => typeof window !== 'undefined' && window.innerWidth < 768
+    () => typeof window !== 'undefined' && window.innerWidth <= 768
   );
   const [reducedMotion] = useState<boolean>(
     () => typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -63,6 +60,9 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
 
   const enableEffects = !isMobile && !reducedMotion;
 
+  // On mobile: render nothing — hero uses CSS photo fallback, no heavy WebGL
+  if (isMobile) return null;
+
   return (
     <div
       className="fixed inset-0 w-full h-full z-0 overflow-hidden"
@@ -84,13 +84,24 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
         }}
         className="w-full h-full"
       >
-        <PerspectiveCamera makeDefault position={[0, 0, 7]} fov={isMobile ? 55 : 45} />
+        <PerspectiveCamera makeDefault position={[0, 0, 7.2]} fov={isMobile ? 55 : 44} />
 
-        {/* Global Lights */}
-        <ambientLight intensity={0.7} />
-        <directionalLight position={[5, 8, 6]} intensity={1.6} color="#FFFFFF" castShadow />
-        <directionalLight position={[-6, -2, -4]} intensity={1.2} color="#FFD60A" />
-        <pointLight position={[0, 0, 2]} intensity={0.8} color="#FFD60A" />
+        {/* Global Lights: clear, readable illumination even without cursor movement */}
+        <ambientLight intensity={scrollProgress < 0.2 ? 0.75 : 0.7} />
+        <directionalLight
+          position={[4, 6, 5]}
+          intensity={scrollProgress < 0.2 ? 1.4 : 1.6}
+          color="#FFF8E7"
+          castShadow
+        />
+        <directionalLight
+          position={[-5, 2, 3]}
+          intensity={scrollProgress < 0.2 ? 0.9 : 1.2}
+          color="#FFD60A"
+        />
+        {scrollProgress >= 0.2 && (
+          <pointLight position={[0, 0, 2]} intensity={0.8} color="#FFD60A" />
+        )}
 
         <Suspense fallback={null}>
           {/* CAMERA RIG FLYTHROUGH (Desktop / Full motion) */}
@@ -98,11 +109,8 @@ export const CinematicCanvas: React.FC<CinematicCanvasProps> = ({
             <CameraRig scrollProgress={scrollProgress} />
           ) : null}
 
-          {/* ZONE 0: HERO (Huge Layered Photo, Liquid Metal Orb, Orbiting Tags, Yellow Dust) */}
-          <HeroLayeredPhoto scrollProgress={scrollProgress} />
-          <LiquidMetalOrb scrollProgress={scrollProgress} />
-          <TechTagsOrbit scrollProgress={scrollProgress} />
-          <YellowParticleDust count={enableEffects ? 110 : 40} />
+          {/* ZONE 0: HERO (Dark 3D Room, Volumetric Torch, Rapier Physics 3D Text, Displaced Photo) */}
+          <DarkRoomHero scrollProgress={scrollProgress} />
 
           {/* ZONES 1 - 5: ONLY IN FULL 3D FLYTHROUGH MODE */}
           {enableEffects ? (

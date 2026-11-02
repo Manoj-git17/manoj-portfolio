@@ -164,7 +164,7 @@ export const CaseFiles: React.FC = () => {
   return (
     <section
       id="case-files"
-      className="relative bg-[#F2EFE6] text-[#0E0E0E] py-20 sm:py-28 lg:py-36 border-t border-[#0E0E0E]/15 overflow-hidden selection:bg-[#0E0E0E] selection:text-[#F2EFE6]"
+      className="relative bg-[#F2EFE6] text-[#0E0E0E] py-14 sm:py-28 lg:py-36 border-t border-[#0E0E0E]/15 overflow-hidden selection:bg-[#0E0E0E] selection:text-[#F2EFE6]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -264,8 +264,8 @@ export const CaseFiles: React.FC = () => {
                       </div>
 
                       {/* SVG Pipeline Diagram with Responsive Wrap / Smooth Scroll */}
-                      <div className="py-3 overflow-x-auto max-w-full">
-                        <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 sm:gap-2.5 text-xs font-mono">
+                      <div className="py-3 overflow-x-auto max-w-full mobile-scroll-x">
+                        <div className="flex flex-nowrap items-center gap-2 text-xs font-mono" style={{ minWidth: 'max-content' }}>
                           {project.diagramSteps.map((step, idx) => (
                             <React.Fragment key={idx}>
                               <div className="px-3 py-2 rounded-lg bg-[#1F1F22] border border-[#F2EFE6]/20 text-[#F2EFE6] text-center font-medium shrink-0 shadow-sm whitespace-nowrap">
@@ -416,7 +416,7 @@ export const CaseFiles: React.FC = () => {
                     </div>
 
                     {/* Action Buttons: Live Demo + GitHub on EVERY Project */}
-                    <div className="flex flex-wrap items-center gap-3 pt-2">
+                    <div className="flex flex-col sm:flex-row flex-wrap items-stretch sm:items-center gap-3 pt-2">
                       {/* Live Demo Button */}
                       {project.liveDemoUrl ? (
                         <a
