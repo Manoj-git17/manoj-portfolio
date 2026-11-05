@@ -86,24 +86,24 @@ export const StickyNav: React.FC<StickyNavProps> = ({ onOpenResume, onOpenRecrui
                 : 'bg-[#0E0E0E]/90 text-[#F2EFE6] border-[#F2EFE6]/20 shadow-[0_8px_24px_rgba(0,0,0,0.4)]'
             }`}
           >
-            {/* Mobile: Logo "MANOJ." on the left */}
+            {/* Logo "MANOJ P.S." */}
             <a
               href="#subject"
               onClick={(e) => {
                 e.preventDefault();
                 scrollTo('#subject');
               }}
-              className="lg:hidden flex items-center font-display text-lg tracking-wider text-[#FFD60A] min-h-[44px] px-1"
+              className="flex items-center font-display text-base sm:text-lg tracking-wider text-[#FFD60A] min-h-[44px] px-1"
             >
-              MANOJ<span className="text-[#F2EFE6]">.</span>
+              MANOJ P.S.
             </a>
+
+            <span className="font-mono text-[11px] text-[#F2EFE6]/40">/</span>
 
             {/* Desktop: Issue Badge VOL. 01 */}
             <span className="hidden lg:inline-block font-mono text-[10px] sm:text-[11px] font-bold tracking-[0.2em] uppercase bg-[#FFD60A] text-[#0E0E0E] px-2.5 py-0.5 rounded-full shadow-sm">
               {MAGAZINE_THEME.editorial.volume}
             </span>
-
-            <span className="hidden lg:inline font-mono text-[11px] text-[#F2EFE6]/40">/</span>
 
             {/* Desktop Nav Links */}
             <nav className="hidden lg:flex items-center gap-2 text-[11.5px] font-mono tracking-wider" aria-label="Site sections">

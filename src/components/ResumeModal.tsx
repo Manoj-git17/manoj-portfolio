@@ -34,70 +34,58 @@ export const ResumeModal: React.FC<ResumeModalProps> = ({ isOpen, onClose }) => 
 
   const handleCopyText = () => {
     const resumeText = `
-MANOJ
-Artificial Intelligence & Data Science Engineering Student
-Expected Graduation: 2029 | Location: India
+${PORTFOLIO_DATA.personal.name}
+${PORTFOLIO_DATA.personal.role}
+Location: ${PORTFOLIO_DATA.personal.location}
 Email: ${PORTFOLIO_DATA.personal.email}
 GitHub: ${PORTFOLIO_DATA.personal.github}
 LinkedIn: ${PORTFOLIO_DATA.personal.linkedin}
+Availability: ${PORTFOLIO_DATA.personal.internshipAvailability}
 
-ACADEMIC EDUCATION:
-- ${PORTFOLIO_DATA.education.degree} (${PORTFOLIO_DATA.education.timeline})
+EDUCATION:
+- ${PORTFOLIO_DATA.education.degree} (${PORTFOLIO_DATA.education.currentStatus})
 - Expected Graduation: ${PORTFOLIO_DATA.education.expectedGraduation}
-- Key Focus: Data Structures, Algorithms, Mathematics, Database Systems, Machine Learning Foundations
+- Key Focus: Data Structures, Algorithms, Mathematics, Relational Databases, Machine Learning Foundations
 
 TECHNICAL SKILLS:
-- Programming: Python, JavaScript / TypeScript, C++
-- Web: HTML, CSS, React, Tailwind CSS
-- Data: SQL, Database Fundamentals, Exploratory Data Analysis
+- Programming: Python, C++, JavaScript, TypeScript, SQL
+- AI & Data Science: Machine Learning, Pandas, NumPy, Data Analysis, Feature Engineering, Model Evaluation
+- Data Engineering: ETL Pipelines, Data Cleaning, Data Warehousing, Data Modeling
+- Backend: FastAPI, Flask, Node.js, REST APIs
+- Databases: PostgreSQL, SQLite
 - Tools: Git, GitHub, VS Code
-- AI: Machine Learning Fundamentals, AI Application Development
 
 SELECTED PROJECTS:
-1. DataPulse (React, Python, FastAPI, Pandas, PostgreSQL)
-   Full-stack AI-assisted data analytics platform transforming sales data into business insights.
-2. Exploratory Data Intelligence Pipeline (Python, SQL, Pandas)
-   Modular pipeline for automated ingestion, outlier detection, and statistical profiling.
-3. Predictive Classifier & Evaluation Lab (Python, Scikit-Learn)
-   Systematic evaluation of classification algorithms with cross-validation benchmarks.
-4. Minimalist Engineering Metrics Dashboard (React, TypeScript, Tailwind)
-   Responsive web application visualizing algorithmic benchmarks.
-5. Algorithms & Computational Graph Explorer (C++)
-   Clean implementations of data structures, graph traversals, and complexity benchmarks.
+1. DataPulse — AI-Powered Business Analytics Platform
+   Stack: Python, FastAPI, React 19, TypeScript, PostgreSQL, SQLAlchemy, Tailwind CSS
+   - Architected end-to-end sales intelligence platform with automated ETL and star schema data warehouse.
+   - Verified 38/38 automated Pytests passed with 100% CI pass rate.
+
+2. TaskFlow — AI-Powered Task Management SaaS
+   Stack: React 19, Node.js, Express, SQLite, Google Gemini 1.5, JWT
+   - Integrated Google Gemini 1.5 prompt pipeline for automated daily task synthesis and productivity analytics.
+   - Deployed full-stack SaaS live on Render cloud platform.
+
+3. Machine Learning Classification Project
+   Stack: Python, Scikit-Learn, Pandas, NumPy, Matplotlib
+   - Built comparative classification benchmark evaluating models using stratified 5-fold cross-validation.
+   - Enforced strict data leakage boundaries with sub-millisecond inference latency.
+
+4. Automated Data Pipeline
+   Stack: Python, Pandas, SQLite, Logging, OS
+   - Implemented streaming chunk processor with schema type validation, IQR outlier detection, and automated logs.
+   - Deterministic transform logic preventing anomalous record ingestion.
+
+5. Algorithmic Systems in C++
+   Stack: Modern C++17, STL, Valgrind, Make / CMake
+   - Developed leak-free balanced search trees and graph algorithms (BFS, DFS, Dijkstra) with Valgrind verification.
+   - Benchmarked asymptotic time and spatial complexity across large datasets.
 `.trim();
 
     navigator.clipboard.writeText(resumeText);
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
-  const projectsResumeList = [
-    {
-      title: 'DataPulse',
-      stack: 'React, Python, FastAPI, Pandas, PostgreSQL',
-      desc: 'Full-stack AI-assisted data analytics platform transforming sales data into business insights.',
-    },
-    {
-      title: 'Exploratory Data Intelligence Pipeline',
-      stack: 'Python, SQL, Pandas',
-      desc: 'Modular pipeline for automated ingestion, outlier detection, and statistical profiling.',
-    },
-    {
-      title: 'Predictive Classifier & Evaluation Lab',
-      stack: 'Python, Scikit-Learn',
-      desc: 'Systematic evaluation of classification algorithms with cross-validation benchmarks.',
-    },
-    {
-      title: 'Minimalist Engineering Metrics Dashboard',
-      stack: 'React, TypeScript, Tailwind',
-      desc: 'Responsive web application visualizing algorithmic benchmarks.',
-    },
-    {
-      title: 'Algorithms & Computational Graph Explorer',
-      stack: 'C++',
-      desc: 'Clean implementations of data structures, graph traversals, and complexity benchmarks.',
-    },
-  ];
 
   return (
     <div
@@ -115,7 +103,7 @@ SELECTED PROJECTS:
         <div className="flex items-center justify-between px-4 sm:px-8 py-3 sm:py-4 border-b border-black/[0.08] bg-[#FAFAFA] shrink-0 no-print gap-2">
           <div className="flex items-center space-x-2 min-w-0">
             <span className="text-[11px] sm:text-[12px] font-mono uppercase tracking-wider text-[#1D1D1F] font-semibold truncate">
-              RESUME // {PORTFOLIO_DATA.personal.expectedGraduation}
+              RESUME // {PORTFOLIO_DATA.personal.name} ({PORTFOLIO_DATA.education.expectedGraduation})
             </span>
           </div>
 
@@ -170,9 +158,9 @@ SELECTED PROJECTS:
               {PORTFOLIO_DATA.personal.role}
             </p>
             <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[12px] sm:text-[13px] text-[#6E6E73] mt-2.5 font-mono">
-              <span>Expected Graduation: {PORTFOLIO_DATA.personal.expectedGraduation}</span>
+              <span>Location: {PORTFOLIO_DATA.personal.location}</span>
               <span>•</span>
-              <span>Location: India</span>
+              <span>Status: {PORTFOLIO_DATA.education.currentStatus}</span>
               <span>•</span>
               <span className="break-all">{PORTFOLIO_DATA.personal.email}</span>
               <span>•</span>
@@ -183,6 +171,9 @@ SELECTED PROJECTS:
               <a href={PORTFOLIO_DATA.personal.linkedin} target="_blank" rel="noreferrer" className="hover:text-[#0E0E0E] underline inline-flex items-center gap-0.5">
                 LinkedIn <ExternalLink className="w-3 h-3" />
               </a>
+            </div>
+            <div className="mt-2 text-xs font-mono text-[#0E0E0E] bg-[#FFD60A]/30 border border-[#FFD60A] px-2.5 py-1 rounded inline-block">
+              {PORTFOLIO_DATA.personal.internshipAvailability}
             </div>
           </div>
 
@@ -197,16 +188,16 @@ SELECTED PROJECTS:
                   {PORTFOLIO_DATA.education.degree}
                 </h3>
                 <span className="text-[12px] sm:text-[13px] font-mono text-[#86868B] shrink-0 mt-0.5 sm:mt-0 font-medium">
-                  {PORTFOLIO_DATA.education.timeline} (Exp. {PORTFOLIO_DATA.education.expectedGraduation})
+                  {PORTFOLIO_DATA.education.currentStatus} · Expected {PORTFOLIO_DATA.education.expectedGraduation}
                 </span>
               </div>
               <p className="text-[13px] sm:text-[14px] text-[#555558] leading-relaxed">
-                <strong className="text-[#1D1D1F] font-semibold">Key Focus:</strong> Data Structures, Algorithms, Mathematics, Database Systems, Machine Learning Foundations
+                <strong className="text-[#1D1D1F] font-semibold">Key Focus:</strong> Data Structures, Algorithms, Discrete Mathematics, Relational Database Systems, Machine Learning Foundations
               </p>
             </div>
           </div>
 
-          {/* Technical Skills */}
+          {/* Technical Skills: 6 Clean Categories */}
           <div className="space-y-2.5 sm:space-y-3">
             <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5 font-bold">
               TECHNICAL SKILLS
@@ -216,19 +207,31 @@ SELECTED PROJECTS:
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
                   Programming:
                 </strong>
-                <p className="text-[#555558]">Python, JavaScript / TypeScript, C++</p>
+                <p className="text-[#555558]">Python, C++, JavaScript, TypeScript, SQL</p>
               </div>
               <div>
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
-                  Web:
+                  AI &amp; Data Science:
                 </strong>
-                <p className="text-[#555558]">HTML, CSS, React, Tailwind CSS</p>
+                <p className="text-[#555558]">Machine Learning, Pandas, NumPy, Data Analysis, Feature Engineering, Model Evaluation</p>
               </div>
               <div>
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
-                  Data:
+                  Data Engineering:
                 </strong>
-                <p className="text-[#555558]">SQL, Database Fundamentals, Exploratory Data Analysis</p>
+                <p className="text-[#555558]">ETL Pipelines, Data Cleaning, Data Warehousing, Data Modeling</p>
+              </div>
+              <div>
+                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
+                  Backend:
+                </strong>
+                <p className="text-[#555558]">FastAPI, Flask, Node.js, REST APIs</p>
+              </div>
+              <div>
+                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
+                  Databases:
+                </strong>
+                <p className="text-[#555558]">PostgreSQL, SQLite</p>
               </div>
               <div>
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
@@ -236,35 +239,35 @@ SELECTED PROJECTS:
                 </strong>
                 <p className="text-[#555558]">Git, GitHub, VS Code</p>
               </div>
-              <div className="sm:col-span-2">
-                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
-                  AI:
-                </strong>
-                <p className="text-[#555558]">
-                  Machine Learning Fundamentals, AI Application Development
-                </p>
-              </div>
             </div>
           </div>
 
-          {/* Selected Projects */}
+          {/* Selected Projects: 5 Prioritized Projects */}
           <div className="space-y-3 sm:space-y-4">
             <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5 font-bold">
-              SELECTED PROJECTS
+              PRIORITIZED TECHNICAL PROJECTS
             </h2>
-            <div className="space-y-3 sm:space-y-4">
-              {projectsResumeList.map((proj, idx) => (
-                <div key={idx} className="space-y-0.5">
+            <div className="space-y-3.5 sm:space-y-4">
+              {PORTFOLIO_DATA.projects.map((proj, idx) => (
+                <div key={proj.id} className="space-y-1">
                   <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-0.5">
                     <h3 className="text-[14.5px] sm:text-[15px] font-semibold text-[#1D1D1F] break-words">
                       {idx + 1}. {proj.title}
                     </h3>
                     <span className="text-[11.5px] sm:text-[12px] font-mono text-[#86868B]">
-                      ({proj.stack})
+                      ({proj.technologies.slice(0, 4).join(', ')})
                     </span>
                   </div>
-                  <p className="text-[12.5px] sm:text-[13px] text-[#555558] leading-relaxed pl-4">
-                    {proj.desc}
+                  <p className="text-[12.5px] sm:text-[13px] text-[#555558] leading-relaxed">
+                    {proj.tagline}
+                  </p>
+                  <p className="text-[12px] sm:text-[12.5px] text-[#1D1D1F] font-mono">
+                    <span className="text-[#86868B]">Contribution:</span> {proj.keyContribution}
+                    {proj.verifiedResults && (
+                      <span className="text-emerald-700 font-semibold block sm:inline sm:ml-2">
+                        · Result: {proj.verifiedResults}
+                      </span>
+                    )}
                   </p>
                 </div>
               ))}
@@ -273,7 +276,7 @@ SELECTED PROJECTS:
 
           {/* Academic Note */}
           <div className="pt-3 sm:pt-4 border-t border-black/[0.06] text-[11.5px] sm:text-[12px] text-[#86868B] italic">
-            This profile communicates active undergraduate coursework and engineering projects. Verified GitHub and repository commits.
+            All codebases and reproducible execution environments are publicly available on GitHub (@Manoj-git17).
           </div>
         </div>
       </div>

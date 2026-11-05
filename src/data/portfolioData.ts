@@ -1,13 +1,13 @@
 export interface SkillItem {
   name: string;
-  level: string;
+  level?: string;
   note?: string;
   practicalApplication?: string;
 }
 
 export interface SkillCategory {
   title: string;
-  category: 'Programming' | 'Web' | 'Data' | 'Tools' | 'AI';
+  category: string;
   description: string;
   items: SkillItem[];
 }
@@ -15,16 +15,21 @@ export interface SkillCategory {
 export interface Project {
   id: string;
   title: string;
+  shortTitle: string;
   tagline: string;
-  category: 'AI & Machine Learning' | 'Data Engineering' | 'Web Development' | 'Systems & Algorithms';
+  category: string;
   badge: string;
   description: string;
   problemSolved: string;
+  keyContribution: string;
+  verifiedResults: string;
   architecture: string[];
   metrics: string[];
   technologies: string[];
   githubUrl: string;
   liveDemoUrl?: string;
+  videoPreviewPath: string;
+  diagramSteps: string[];
   status: 'Completed' | 'In Progress' | 'Active Exploration';
   highlights: string[];
 }
@@ -37,397 +42,323 @@ export interface CourseworkCategory {
 
 export const PORTFOLIO_DATA = {
   personal: {
-    name: 'Manoj',
-    wordmark: 'MANOJ',
-    role: 'Artificial Intelligence & Data Science Engineering Student',
+    name: 'MANOJ P.S.',
+    wordmark: 'MANOJ P.S.',
+    role: 'AI & Data Science Engineer | Aspiring AI/ML Engineer',
+    academicDegree: 'B.Tech — Artificial Intelligence & Data Science',
+    currentAcademicStatus: '3rd Semester',
     expectedGraduation: '2029',
-    bioHeadline: 'Curiosity into code. Ideas into impact.',
+    timeline: '2025 – 2029',
+    bioHeadline: 'Building intelligent applications and data-driven solutions using Python, machine learning, and modern software engineering.',
     bioSubtitle:
-      "I'm Manoj, an Artificial Intelligence & Data Science engineering student passionate about building useful software, exploring intelligent systems, and solving problems through technology.",
-    aboutParagraphs: [
-      "I'm an Artificial Intelligence and Data Science engineering student interested in the intersection of software engineering, data, and intelligent systems.",
-      'I enjoy learning how technology works, developing my programming skills, and turning ideas into practical projects.',
-      'My goal is to build strong engineering fundamentals through consistent learning, experimentation, and hands-on development.',
-    ],
-    editorialStatement:
-      'Engineering intelligent systems from first principles — combining mathematical rigor, clean software design, and verifiable data pipelines.',
+      'Building intelligent applications and data-driven solutions using Python, machine learning, and modern software engineering.',
+    description:
+      'Building intelligent applications and data-driven solutions using Python, machine learning, and modern software engineering.',
     email: 'manojps60281@gmail.com',
-    github: 'https://github.com/manoj-dev-ai',
+    github: 'https://github.com/Manoj-git17',
     linkedin: 'https://linkedin.com/in/manoj-aids',
-    location: 'Bengaluru, Karnataka, India',
-    targetRole: 'AI & Data Engineering / Software Engineering Intern',
-    internshipAvailability: 'Available for internships from Summer 2027',
+    location: 'Bengaluru, India',
+    targetRole: 'AI/ML, Data Science & Software Engineering Intern',
+    interestedRoles: 'AI/ML Intern | Data Science Intern | Python Developer Intern | Data Engineering Intern',
+    workPreferences: 'Remote | Hybrid | On-site',
+    internshipAvailability: 'Open to AI/ML, Data Science, and Software Engineering Internships',
     isOpenToWork: true,
     codingProfiles: {
-      leetcode: '', // TODO: Add your LeetCode username when ready (e.g. 'manoj_17')
-      hackerrank: '', // TODO: Add your HackerRank username when ready
+      leetcode: '',
+      hackerrank: '',
     },
   },
 
-  principles: [
-    {
-      title: 'First-Principles Understanding',
-      tag: '01 // RIGOR',
-      description:
-        'Deconstructing computing systems to their mathematical and architectural fundamentals rather than relying on black-box abstractions.',
-    },
-    {
-      title: 'Pragmatic Engineering',
-      tag: '02 // CRAFT',
-      description:
-        'Writing maintainable, well-structured, readable code with strict separation of concerns that solves concrete, real-world problems.',
-    },
-    {
-      title: 'Continuous Experimentation',
-      tag: '03 // DISCOVERY',
-      description:
-        'Validating machine learning theory through empirical experimentation, measurable benchmarks, and reproducible pipelines.',
-    },
-  ],
-
+  // 6 Clean Recruiter-Targeted Skill Categories
   skillCategories: [
     {
-      title: 'Programming Languages',
+      title: 'Programming',
       category: 'Programming',
-      description: 'Foundational languages used for algorithm development, computational pipelines, and systems design.',
+      description: 'Core languages for algorithms, data structures, and production applications.',
       items: [
-        {
-          name: 'Python',
-          level: 'Primary',
-          note: 'Data analysis, ML scripts, automation',
-          practicalApplication:
-            'Data wrangling with Pandas/NumPy, building reproducible statistical models, developing automation workflows, and scripting data validation pipelines.',
-        },
-        {
-          name: 'JavaScript / TypeScript',
-          level: 'Intermediate',
-          note: 'Modern web interfaces & typed tooling',
-          practicalApplication:
-            'Strictly typed interfaces, component-driven client architecture, state modeling, and API integration with zero runtime overhead.',
-        },
-        {
-          name: 'C++',
-          level: 'Foundational',
-          note: 'Data structures & algorithm optimization',
-          practicalApplication:
-            'Low-level memory management, pointer manipulation, cache-friendly vector structures, and asymptotic algorithmic micro-benchmarks.',
-        },
+        { name: 'Python' },
+        { name: 'C++' },
+        { name: 'JavaScript' },
+        { name: 'TypeScript' },
+        { name: 'SQL' },
       ],
     },
     {
-      title: 'Web Technologies',
-      category: 'Web',
-      description: 'Building clean, accessible interfaces and responsive full-stack applications.',
+      title: 'AI & Data Science',
+      category: 'AI & Data Science',
+      description: 'Machine learning workflows, exploratory data analysis, and model evaluation.',
       items: [
-        {
-          name: 'React.js & Vite',
-          level: 'Proficient',
-          note: 'Component architecture & state patterns',
-          practicalApplication:
-            'Custom hooks, optimistic UI state updates, modular design systems, and fast client-side rendering with minimal re-render footprints.',
-        },
-        {
-          name: 'Express.js & Node.js',
-          level: 'Intermediate',
-          note: 'REST APIs, middleware & auth',
-          practicalApplication:
-            'Constructing modular backend APIs, handling CORS, JSON validation, error logging, and connecting persistent database drivers.',
-        },
-        {
-          name: 'Tailwind CSS',
-          level: 'Proficient',
-          note: 'Utility-first minimalist styling',
-          practicalApplication:
-            'Design token management, Apple-inspired editorial styling, dark/light contrast calibration, and ultra-lean production CSS builds.',
-        },
+        { name: 'Machine Learning' },
+        { name: 'Pandas' },
+        { name: 'NumPy' },
+        { name: 'Data Analysis' },
+        { name: 'Feature Engineering' },
+        { name: 'Model Evaluation' },
       ],
     },
     {
-      title: 'Data & Databases',
-      category: 'Data',
-      description: 'Structuring schemas, querying relational engines, and extracting statistical intelligence.',
+      title: 'Data Engineering',
+      category: 'Data Engineering',
+      description: 'Data ingestion, schema modeling, transformation, and automated warehousing.',
       items: [
-        {
-          name: 'SQL & SQLite',
-          level: 'Intermediate',
-          note: 'Complex queries, schema design & ACID storage',
-          practicalApplication:
-            'Multi-table joins, subqueries, grouping aggregations, window functions, and indexing strategies for analytical retrieval.',
-        },
-        {
-          name: 'Database Fundamentals',
-          level: 'Foundational',
-          note: 'Relational design & ACID concepts',
-          practicalApplication:
-            'Entity-relationship modeling, 3NF normalization, constraint enforcement, and transactional integrity guarantees.',
-        },
-        {
-          name: 'Exploratory Data Analysis',
-          level: 'Intermediate',
-          note: 'Data cleaning, EDA, aggregation',
-          practicalApplication:
-            'Exploratory data analysis, distribution outlier detection, correlation analysis, and structured summary reporting.',
-        },
+        { name: 'ETL Pipelines' },
+        { name: 'Data Cleaning' },
+        { name: 'Data Warehousing' },
+        { name: 'Data Modeling' },
       ],
     },
     {
-      title: 'Engineering Tools',
+      title: 'Backend',
+      category: 'Backend',
+      description: 'Service architectures, RESTful APIs, and asynchronous execution.',
+      items: [
+        { name: 'FastAPI' },
+        { name: 'Flask' },
+        { name: 'Node.js' },
+        { name: 'REST APIs' },
+      ],
+    },
+    {
+      title: 'Databases',
+      category: 'Databases',
+      description: 'Relational data modeling, schema normalization, and ACID compliance.',
+      items: [
+        { name: 'PostgreSQL' },
+        { name: 'SQLite' },
+      ],
+    },
+    {
+      title: 'Tools',
       category: 'Tools',
-      description: 'Version control, developer environments, and collaboration workflows.',
+      description: 'Developer environments, version control, and collaboration workflows.',
       items: [
-        {
-          name: 'Git',
-          level: 'Proficient',
-          note: 'Branching, commit hygiene, rebasing',
-          practicalApplication:
-            'Conventional commit messages, feature branching, clean rebase workflows, and conflict resolution.',
-        },
-        {
-          name: 'GitHub',
-          level: 'Proficient',
-          note: 'Repositories & open collaboration',
-          practicalApplication:
-            'Documented pull requests, project tracking, release tagging, and automated continuous integration checks.',
-        },
-        {
-          name: 'VS Code',
-          level: 'Proficient',
-          note: 'Configured environment & debugging',
-          practicalApplication:
-            'Integrated breakpoint debugging, linting with ESLint/Prettier, extension configurations, and terminal integration.',
-        },
-      ],
-    },
-    {
-      title: 'Artificial Intelligence',
-      category: 'AI',
-      description: 'Applied machine learning pipelines, model evaluation, and modern AI application prototyping.',
-      items: [
-        {
-          name: 'Google Gemini API & LLMs',
-          level: 'Active Practice',
-          note: 'Task decomposition, planning & structured generation',
-          practicalApplication:
-            'Integrating Google Gemini for multi-step task breakdown, automated daily plan generation, structured JSON extraction, and context-aware productivity analysis.',
-        },
-        {
-          name: 'Machine Learning Fundamentals',
-          level: 'Active Study',
-          note: 'Supervised/unsupervised models & regression',
-          practicalApplication:
-            'Mathematical intuition for cost functions, gradient descent, classification boundaries, bias-variance trade-offs, and regularization.',
-        },
-        {
-          name: 'Data Modeling & Metrics',
-          level: 'Foundational',
-          note: 'Loss metrics & validation methodology',
-          practicalApplication:
-            'Stratified K-fold cross-validation, precision-recall curve analysis, confusion matrix auditing, and zero-leakage test splits.',
-        },
+        { name: 'Git' },
+        { name: 'GitHub' },
+        { name: 'VS Code' },
       ],
     },
   ] as SkillCategory[],
 
+  // 5 Prioritized Projects with Consistent, Concise Formatting
   projects: [
     {
       id: 'datapulse',
-      title: 'DataPulse',
-      tagline: 'AI-Powered Data Analytics Platform',
+      title: 'DataPulse — AI-Powered Business Analytics Platform',
+      shortTitle: 'DataPulse',
+      tagline: 'Full-stack analytics platform that automates sales ETL processing, warehouses data in a star schema, and delivers interactive analytics with an AI query assistant.',
       category: 'Data Engineering',
       badge: 'FULL-STACK // DATA & AI',
       description:
-        'Full-stack AI-assisted data analytics platform transforming sales data into business insights.',
+        'Full-stack analytics platform that automates sales ETL processing, warehouses data in a star schema, and delivers interactive analytics with an AI query assistant.',
       problemSolved:
-        'Replaces fragmented spreadsheets and manual sales reporting with an automated data pipeline, star-schema warehouse, and interactive analytical dashboards with AI query assistance.',
+        'Replaces fragmented spreadsheets and error-prone manual calculations with an automated ETL pipeline, structured warehouse, and real-time analytical dashboards.',
+      keyContribution:
+        'Engineered an automated Python validation and quarantine pipeline, modeled a 3NF star-schema warehouse with SQLAlchemy, and exposed KPI endpoints via async FastAPI to a React 19 dashboard.',
+      verifiedResults:
+        '38/38 automated Pytest test suite covering ETL validation, schema integrity, and API endpoints.',
       architecture: [
-        'Automated Python and Pandas ETL pipeline for schema validation, cleansing, and record quarantining',
-        'Relational star-schema warehouse design (fact_sales, dim_customers, dim_products) with SQLAlchemy',
-        'Asynchronous FastAPI backend providing REST endpoints for KPI metrics and regional performance',
-        'Interactive React 19 and Vite frontend dashboard with interactive charts and an AI-assisted query interface',
+        'Automated Python and Pandas ETL pipeline with quarantine logic for corrupted rows',
+        'Relational star-schema data warehouse modeled with SQLAlchemy and PostgreSQL',
+        'Asynchronous FastAPI REST API service delivering sub-second KPI queries',
+        'Interactive React 19 client with real-time charts and natural language query assistance',
       ],
-      metrics: ['38 Automated Tests Passed', 'Star Schema Warehouse', 'Sub-second API Latency'],
-      technologies: [
-        'React',
-        'Python',
-        'FastAPI',
-        'Pandas',
-        'PostgreSQL',
-        'SQLAlchemy',
-        'Vite',
-        'SQLite',
-      ],
+      diagramSteps: ['Raw Sales CSV', 'FastAPI / Pandas ETL', 'Star Schema Warehouse', 'React 19 + AI Dashboard'],
+      metrics: ['38/38 Tests Passed (100%)', 'Star Schema Warehouse', 'Sub-second API Latency'],
+      technologies: ['Python', 'FastAPI', 'React 19', 'PostgreSQL', 'SQLAlchemy', 'Pandas', 'Vite'],
       githubUrl: 'https://github.com/Manoj-git17/DataPulse',
       liveDemoUrl: 'https://data-pulse-phi-six.vercel.app',
+      videoPreviewPath: '/videos/datapulse-demo.mp4',
       status: 'Completed',
       highlights: [
-        'End-to-end automated ETL and schema validation pipeline',
-        'Relational star-schema data warehouse modeling',
-        'FastAPI asynchronous REST service with interactive Swagger docs',
-        'Interactive analytics dashboard with AI-assisted natural queries',
+        'Automated ETL with systematic quarantining of corrupted rows',
+        'Star-schema warehouse optimizing analytical aggregation',
+        'Interactive analytics dashboard with natural language query support',
       ],
     },
     {
       id: 'taskflow',
-      title: 'TaskFlow – AI-Powered Task Manager',
-      tagline: 'AI-powered task management SaaS that plans your day, breaks down complex work and analyzes your productivity.',
-      category: 'AI & Machine Learning',
-      badge: 'AI SAAS // GEMINI POWERED',
+      title: 'TaskFlow — AI-Powered Task Management',
+      shortTitle: 'TaskFlow',
+      tagline: 'AI-driven task management application using Google Gemini to break down complex goals into actionable daily schedules with productivity tracking.',
+      category: 'Applied AI & SaaS',
+      badge: 'AI SAAS // GEMINI 1.5',
       description:
-        'TaskFlow uses Google Gemini to help users intelligently organize their work, generate personalized daily plans, break complex tasks into manageable steps, and analyze productivity.',
+        'AI-driven task management application using Google Gemini to break down complex goals into actionable daily schedules with productivity tracking.',
       problemSolved:
-        'Eliminates decision paralysis and disorganized project backlog by delegating daily schedule planning and task decomposition to Gemini AI with real-time productivity diagnostics.',
+        'Eliminates task paralysis and manual planning overhead by automating schedule synthesis and goal decomposition through structured LLM prompt workflows.',
+      keyContribution:
+        'Integrated Google Gemini API with structured prompt templates for deterministic schedule generation, built Express.js auth & CRUD services, and integrated SQLite persistence.',
+      verifiedResults:
+        '100% Deployed & live on Render cloud with verified JWT session auth and sub-second task synthesis.',
       architecture: [
-        'Responsive React.js and Vite client with modular component architecture and JWT state storage',
-        'Express.js & Node.js REST API layer handling task CRUD operations and secure user authorization',
-        'Google Gemini API integration with structured prompt engineering for automated task breakdown and schedule synthesis',
-        'Relational SQLite database modeling user profiles, task hierarchies, priority matrices, and productivity timestamps',
+        'Modular React.js & Vite client with responsive task boards and JWT state storage',
+        'Node.js & Express.js REST API with authenticated endpoints and input validation',
+        'Google Gemini 1.5 prompt pipeline for goal decomposition and priority matrices',
+        'Relational SQLite database storing tasks, completion timestamps, and user profiles',
       ],
-      metrics: [
-        'Google Gemini 1.5 Integration',
-        'Full JWT Auth Lifecycle',
-        'Sub-second Task Breakdown Engine',
-      ],
-      technologies: [
-        'React.js',
-        'Vite',
-        'Node.js',
-        'Express.js',
-        'SQLite',
-        'Google Gemini API',
-        'JWT Authentication',
-        'Tailwind CSS',
-      ],
+      diagramSteps: ['React.js + Vite Client', 'Express & JWT Auth', 'Google Gemini 1.5 Engine', 'SQLite Store'],
+      metrics: ['100% Deployed & Live on Render', 'JWT Authentication Lifecycle', 'Sub-second Task Breakdown Engine'],
+      technologies: ['React.js', 'Vite', 'Node.js', 'Express.js', 'SQLite', 'Google Gemini API', 'JWT'],
       githubUrl: 'https://github.com/Manoj-git17/ai-task-manager',
       liveDemoUrl: 'https://ai-task-manager-frontend-x3og.onrender.com',
+      videoPreviewPath: '/projects/taskflow.png',
       status: 'Completed',
       highlights: [
-        'Gemini-powered intelligent task planning',
-        'AI task breakdown and prioritization',
-        'Smart task management with deadlines',
-        'Productivity analytics dashboard',
-        'Secure authentication',
-        'Responsive SaaS UI',
-      ],
-    },
-    {
-      id: 'data-analytics-engine',
-      title: 'Exploratory Data Intelligence Pipeline',
-      tagline: 'Automated data ingestion, sanitization, and statistical summary engine',
-      category: 'Data Engineering',
-      badge: 'PIPELINE // MODULAR',
-      description:
-        'Modular pipeline for automated ingestion, outlier detection, and statistical profiling.',
-      problemSolved:
-        'Reduces the boilerplate required during initial exploratory data analysis by producing automated distribution profiles, outlier warnings, and correlation matrices.',
-      architecture: [
-        'Streamlined ingestion parser supporting streaming CSV and JSON formats',
-        'Configurable data validation pipeline with type-safety checks',
-        'Outlier detection using Interquartile Range (IQR) and Z-score metrics',
-        'Automated metric generation with clean Markdown and HTML exports',
-      ],
-      metrics: ['Memory-efficient chunk processing', 'Zero data leakage', 'Deterministic transforms'],
-      technologies: ['Python', 'SQL', 'Pandas'],
-      githubUrl: 'https://github.com/manoj-dev-ai/data-pipeline-insights',
-      status: 'Completed',
-      highlights: [
-        'Deterministic data transformation pipelines',
-        'Reproducible statistical summary generation',
-        'Memory-conscious tabular chunk processing',
+        'Gemini-powered daily schedule generation and task prioritization',
+        'Decomposes multi-hour goals into manageable sub-tasks',
+        'Secure token authentication with persistent SQLite storage',
       ],
     },
     {
       id: 'ml-classification-benchmarks',
-      title: 'Predictive Classifier & Evaluation Lab',
-      tagline: 'Comparative machine learning classification experiments with transparent metrics',
-      category: 'AI & Machine Learning',
-      badge: 'ML BENCHMARK // RIGOROUS',
+      title: 'Machine Learning Classification Project',
+      shortTitle: 'ML Classification Benchmarks',
+      tagline: 'Comparative machine learning classification testbed evaluating baseline algorithms with rigorous cross-validation.',
+      category: 'Machine Learning',
+      badge: 'APPLIED ML // BENCHMARK',
       description:
-        'Systematic evaluation of classification algorithms with cross-validation benchmarks.',
+        'Comparative machine learning classification testbed evaluating baseline algorithms with rigorous cross-validation.',
       problemSolved:
-        'Clarifies the exact trade-offs between model complexity, inference latency, and precision-recall trade-offs across balanced and unbalanced synthetic datasets.',
+        'Addresses unstandardized evaluation and data leakage in baseline model comparisons by enforcing strict split isolation and stratified benchmarking.',
+      keyContribution:
+        'Built stratified 5-fold cross-validation runners, isolated feature scaling to guarantee zero leakage, and generated detailed ROC-AUC curves and confusion matrices.',
+      verifiedResults:
+        'Empirically evaluated precision-recall trade-offs and inference timing benchmarks across baseline classifiers with zero data leakage.',
       architecture: [
-        'Standardized feature scaling (StandardScaler, RobustScaler) and categorical encoding',
-        'Stratified K-Fold cross-validation benchmark runner',
-        'Detailed confusion matrix, ROC-AUC curve, and F1-score evaluation',
-        'Plain-text model interpretability and feature importance rankings',
+        'RobustScaler and StandardScaler feature transformation pipelines',
+        'Stratified K-Fold cross-validation execution harness',
+        'Precision-recall, ROC-AUC, and confusion matrix evaluation modules',
+        'Model interpretability rankings and transparent evaluation logs',
       ],
-      metrics: ['Stratified 5-Fold validation', 'Sub-millisecond inference', 'Transparent logs'],
-      technologies: ['Python', 'Scikit-Learn'],
+      diagramSteps: ['Raw Tabular Data', 'Standard / Robust Scaler', 'Stratified 5-Fold Cross-Val', 'ROC-AUC & Precision Metrics'],
+      metrics: ['Stratified 5-Fold Validation', 'Zero Leakage Isolation', 'Sub-millisecond Inference'],
+      technologies: ['Python', 'Scikit-Learn', 'Pandas', 'NumPy', 'Matplotlib'],
       githubUrl: 'https://github.com/manoj-dev-ai/ml-classifier-lab',
+      liveDemoUrl: 'https://github.com/manoj-dev-ai/ml-classifier-lab#readme',
+      videoPreviewPath: '/videos/mllab-demo.mp4',
       status: 'Completed',
       highlights: [
-        'Zero data leakage preprocessing isolation',
-        'Granular hyperparameter exploration logging',
-        'Plain-text interpretability report exports',
+        'Strict isolation between training and evaluation splits',
+        'Transparent metric comparisons across classification baselines',
+        'Sub-millisecond per-sample inference latency benchmarked',
       ],
     },
     {
-      id: 'interactive-metrics-ui',
-      title: 'Minimalist Engineering Metrics Dashboard',
-      tagline: 'High-performance React interface visualizing computational benchmarks',
-      category: 'Web Development',
-      badge: 'FRONTEND // 100% TYPE-SAFE',
+      id: 'data-analytics-engine',
+      title: 'Automated Data Pipeline',
+      shortTitle: 'Automated Data Pipeline',
+      tagline: 'Modular Python data engineering pipeline for automated ingestion, schema validation, outlier detection, and statistical summary reporting.',
+      category: 'Data Engineering',
+      badge: 'DATA SYSTEMS // ETL',
       description:
-        'Responsive web application visualizing algorithmic benchmarks.',
+        'Modular Python data engineering pipeline for automated ingestion, schema validation, outlier detection, and statistical summary reporting.',
       problemSolved:
-        'Provides a distraction-free, accessible interface for inspecting experiment runs without overwhelming dashboard clutter.',
+        'Eliminates manual boilerplate during exploratory data analysis through automated distribution profiling, type sanitization, and outlier detection.',
+      keyContribution:
+        'Constructed chunk-based tabular stream parsers, integrated IQR and Z-score outlier isolation algorithms, and produced automated HTML/Markdown summary reports.',
+      verifiedResults:
+        'Deterministic preprocessing with isolated transformation states and automated HTML/Markdown profiling dossiers.',
       architecture: [
-        'Modular component architecture with strict TypeScript types and zero `any` usage',
-        'Client-side state caching with zero layout shifts (CLS < 0.01)',
-        'Tailwind utility styling optimized for readability and high contrast',
-        'Lightweight SVG vector charts with smooth micro-interactions',
+        'Streaming chunk parser supporting heterogeneous CSV and JSON files',
+        'Configurable schema validator enforcing strict type assertions',
+        'IQR and Z-score statistical outlier detection algorithms',
+        'Automated report generator outputting structured markdown dossiers',
       ],
-      metrics: ['Lighthouse: 100 Performance', 'Sub-second initial paint', 'Accessible ARIA markup'],
-      technologies: ['React', 'TypeScript', 'Tailwind'],
-      githubUrl: 'https://github.com/manoj-dev-ai/metrics-dashboard',
+      diagramSteps: ['Streaming CSV / JSON', 'Type Validation Engine', 'IQR / Z-Score Outlier Filter', 'Markdown / HTML Dossier'],
+      metrics: ['Chunk-based Memory Efficiency', 'Deterministic Assertions', 'Automated Dossier Generation'],
+      technologies: ['Python', 'Pandas', 'NumPy', 'SQL'],
+      githubUrl: 'https://github.com/manoj-dev-ai/data-pipeline-insights',
+      liveDemoUrl: 'https://github.com/manoj-dev-ai/data-pipeline-insights#readme',
+      videoPreviewPath: '/videos/pipeline-demo.mp4',
       status: 'Completed',
       highlights: [
-        '100% Lighthouse performance and accessibility',
-        'Sub-second page rendering with optimized bundle splitting',
-        'Responsive layout scaling effortlessly to mobile viewports',
+        'Chunk-based ingestion prevents memory bloat on large datasets',
+        'Deterministic assertions ensure reproducible transformation states',
+        'Automated generation of profiling dossiers and outlier flags',
       ],
     },
     {
       id: 'algo-structures-lab',
-      title: 'Algorithms & Computational Graph Explorer',
-      tagline: 'Clean C++ implementations of foundational data structures and graph algorithms',
+      title: 'Algorithmic Systems in C++',
+      shortTitle: 'Algorithmic Systems in C++',
+      tagline: 'High-performance C++ implementation of fundamental data structures, graph traversals, and computational complexity benchmarks.',
       category: 'Systems & Algorithms',
-      badge: 'SYSTEMS // ASYMPTOTIC OPTIMAL',
+      badge: 'SYSTEMS // C++17',
       description:
-        'Clean implementations of data structures, graph traversals, and complexity benchmarks.',
+        'High-performance C++ implementation of fundamental data structures, graph traversals, and computational complexity benchmarks.',
       problemSolved:
-        'Solidifies deep mechanical sympathy for memory locality, pointer manipulation, and asymptotic computational complexity.',
+        'Solidifies deep mechanical sympathy for computer memory hierarchy, pointer safety, cache locality, and asymptotic algorithm efficiency.',
+      keyContribution:
+        'Developed generic template-based graph structures (BFS, DFS, Dijkstra), verified memory integrity with Valgrind (zero leaks), and benchmarked CPU cycle performance.',
+      verifiedResults:
+        'Valgrind-verified zero memory leaks and cache-friendly memory locality across extensive test suites.',
       architecture: [
-        'Header-only generic template structures following modern C++ conventions',
-        'Automated test suites verifying edge case behavior and memory safety',
-        'Micro-benchmarking harness measuring CPU cycles and allocations',
-        'Empirical validation against theoretical Big-O curves',
+        'Modern C++17 template-based header implementations',
+        'Graph representations supporting shortest-path algorithms',
+        'Automated unit test suite validating edge cases and pointer boundaries',
+        'Valgrind memory auditing harness ensuring leak-free allocation',
       ],
-      metrics: ['Zero memory leaks (Valgrind verified)', 'O(V + E) traversals', 'Modern C++17'],
-      technologies: ['C++'],
+      diagramSteps: ['C++17 Template Classes', 'Graph Data Structures', 'BFS / DFS / Dijkstra Traversals', 'Valgrind Leak Audit (0 Leaks)'],
+      metrics: ['Zero Memory Leaks (Valgrind)', 'O(V + E) Traversals', 'Modern C++17 Standard'],
+      technologies: ['C++', 'STL', 'CMake', 'Valgrind'],
       githubUrl: 'https://github.com/manoj-dev-ai/algorithmic-systems',
+      liveDemoUrl: 'https://github.com/manoj-dev-ai/algorithmic-systems#readme',
+      videoPreviewPath: '/videos/pipeline-demo.mp4',
       status: 'Completed',
       highlights: [
-        'Strict memory safety and leak-free verification',
-        'Comprehensive asymptotic analysis notes for every structure',
-        'Modern C++17 paradigms with clear separation of concerns',
+        'Verified zero memory leaks using Valgrind analysis',
+        'Clean separation of concerns with modern C++17 idioms',
+        'Empirical validation against theoretical Big-O curves',
       ],
     },
   ] as Project[],
 
+  // Academic Milestones & Verified Recognition
+  achievements: [
+    {
+      title: 'DataPulse Pytest Test Suite Integrity',
+      category: 'Software Engineering',
+      metric: '38/38 Tests (100%)',
+      description: 'Comprehensive automated test coverage for ETL data validation, schema integrity assertions, and asynchronous FastAPI REST endpoints in continuous integration.',
+      date: '2026',
+    },
+    {
+      title: 'TaskFlow Production Cloud Deployment',
+      category: 'Applied AI & Cloud',
+      metric: 'Render SaaS Deployed',
+      description: 'Production full-stack SaaS with Google Gemini 1.5 API prompt pipelines, secure JWT token lifecycle, and persistent relational SQLite database.',
+      date: '2026',
+    },
+    {
+      title: 'Deterministic Pipeline Transformation & Zero Leakage Validation',
+      category: 'Data Science & ML',
+      metric: 'Verified Isolation',
+      description: 'Engineered preprocessing pipelines with isolated evaluation splits ensuring zero data leakage, verified across Stratified K-Fold cross-validation runs.',
+      date: '2026',
+    },
+    {
+      title: 'Valgrind Memory Audit Verification',
+      category: 'Systems & Algorithms',
+      metric: '0 Memory Leaks',
+      description: 'Engineered modern C++17 data structures and graph algorithms verified with Valgrind dynamic analysis for leak-free memory safety and cache locality.',
+      date: '2025 – 2026',
+    },
+  ],
+
   education: {
-    degree: 'Bachelor of Engineering / B.Tech in Artificial Intelligence & Data Science',
-    status: 'Undergraduate Engineering Student',
+    degree: 'B.Tech — Artificial Intelligence & Data Science',
+    status: 'Undergraduate Engineering Student (3rd Semester)',
+    currentStatus: '3rd Semester',
     expectedGraduation: '2029',
     timeline: '2025 – 2029',
     keyFocus: 'Data Structures, Algorithms, Mathematics, Database Systems, Machine Learning Foundations',
     overview:
-      'Pursuing a comprehensive curriculum combining core computer science foundations, discrete mathematics, statistical modeling, and modern computational data architectures.',
+      'Pursuing a rigorous undergraduate engineering curriculum combining computer science foundations, discrete mathematics, statistical modeling, and modern computational data architectures.',
     coursework: [
       {
         category: 'Foundational Computing',
         description: 'Core principles of software systems, low-level execution, and efficient algorithmic logic.',
-        courses: ['Data Structures & Algorithms', 'Object-Oriented Programming', 'Computer Architecture', 'Operating System Concepts'],
+        courses: ['Data Structures & Algorithms', 'Object-Oriented Programming in C++', 'Computer Architecture', 'Operating System Concepts'],
       },
       {
         category: 'Mathematics & Analytics',
@@ -449,4 +380,4 @@ export const PORTFOLIO_DATA = {
 };
 
 export const TOTAL_PROJECTS_COUNT = PORTFOLIO_DATA.projects.length;
-export const FLAGSHIP_PROJECTS_COUNT = 4;
+export const FLAGSHIP_PROJECTS_COUNT = 5;

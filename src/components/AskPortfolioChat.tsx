@@ -25,9 +25,9 @@ function createChatMessage(sender: 'user' | 'assistant', text: string, source?: 
 }
 
 const SUGGESTED_QUESTIONS = [
-  "What is Manoj's strongest project?",
+  "What is Manoj P.S.'s strongest project?",
   "Tell me about his data engineering experience",
-  "Can he start immediately / internship timeline?",
+  "Internship availability and target roles?",
 ];
 
 // Grounded client-side fallback knowledge engine that strictly quotes PORTFOLIO_DATA
@@ -171,7 +171,7 @@ export const AskPortfolioChat: React.FC = () => {
     {
       id: 'welcome-init',
       sender: 'assistant',
-      text: `Hello! I'm Manoj's Portfolio AI Assistant. Ask me anything about his technical stack, case studies (like DataPulse), data engineering experience, or internship timeline.`,
+      text: `Hello! I'm Manoj P.S.'s Portfolio AI Assistant. Ask me anything about his technical stack, case studies (like DataPulse), data engineering experience, or internship availability.`,
       timestamp: 'Now',
     },
   ]);

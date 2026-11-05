@@ -372,7 +372,7 @@ export const HeroLayeredPhoto: React.FC<HeroLayeredPhotoProps> = ({ scrollProgre
               anchorX="left"
               anchorY="middle"
             >
-              status: "Available Summer 2027";
+              status: "Open to Internships";
             </Text>
           </group>
         </Float>

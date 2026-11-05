@@ -33,16 +33,14 @@ export const About: React.FC = () => {
           <div className="lg:col-span-8 space-y-8 sm:space-y-10">
             {/* Bold Apple lead statement */}
             <p className="text-xl sm:text-2xl md:text-3xl lg:text-[32px] font-medium text-[#1D1D1F] tracking-[-0.025em] leading-[1.35] text-balance break-words">
-              {PORTFOLIO_DATA.personal.editorialStatement}
+              {PORTFOLIO_DATA.personal.bioHeadline}
             </p>
 
             {/* Core editorial paragraphs */}
             <div className="space-y-4 sm:space-y-6 text-[15px] sm:text-lg lg:text-[20px] text-[#424245] leading-[1.65] font-normal tracking-[-0.012em]">
-              {PORTFOLIO_DATA.personal.aboutParagraphs.map((paragraph, index) => (
-                <p key={index} className="text-pretty">
-                  {paragraph}
-                </p>
-              ))}
+              <p className="text-pretty">
+                {PORTFOLIO_DATA.personal.description}
+              </p>
             </div>
 
             {/* Guiding Principles in Responsive Cards */}
@@ -51,23 +49,23 @@ export const About: React.FC = () => {
                 <h3 className="text-[11px] sm:text-[12px] font-mono uppercase tracking-wider text-[#86868B]">
                   Guiding Engineering Principles
                 </h3>
-                <span className="text-[11px] sm:text-[12px] font-mono text-[#86868B]">3 PILLARS</span>
+                <span className="text-[11px] sm:text-[12px] font-mono text-[#86868B]">KEY MILESTONES</span>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
-                {PORTFOLIO_DATA.principles.map((principle, idx) => (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
+                {PORTFOLIO_DATA.achievements.map((item, idx) => (
                   <div
                     key={idx}
                     className="p-5 sm:p-6 rounded-2xl bg-[#FFFFFF] border border-black/[0.06] hover:border-black/[0.12] transition-colors shadow-[0_2px_8px_rgba(0,0,0,0.02)] space-y-2"
                   >
                     <span className="text-[11px] font-mono text-[#0071E3] font-medium block">
-                      {principle.tag}
+                      {item.category}
                     </span>
                     <h4 className="text-[15px] font-semibold text-[#1D1D1F] tracking-tight">
-                      {principle.title}
+                      {item.title}
                     </h4>
                     <p className="text-[13px] text-[#6E6E73] leading-relaxed">
-                      {principle.description}
+                      {item.description}
                     </p>
                   </div>
                 ))}

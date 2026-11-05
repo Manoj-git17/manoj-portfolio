@@ -1,13 +1,13 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
-import { BookOpen, CheckCircle, GraduationCap, Quote, Clock, Check } from 'lucide-react';
+import { BookOpen, CheckCircle, GraduationCap, Award, Clock, Check, Terminal } from 'lucide-react';
 
 export const Record: React.FC = () => {
   const stats = [
-    { number: String(PORTFOLIO_DATA.projects.length).padStart(2, '0'), label: 'Systems Deployed', sublabel: 'Data engineering & full-stack applications' },
-    { number: '38/38', label: 'Pytest Suite', sublabel: '100% CI pass rate with zero regression' },
-    { number: '0%', label: 'Data Leakage', sublabel: 'Deterministic transforms & isolated train/test splits' },
-    { number: '2029', label: 'B.Tech AI & DS', sublabel: 'Undergraduate academic foundation' },
+    { number: String(PORTFOLIO_DATA.projects.length).padStart(2, '0'), label: 'Systems Built', sublabel: 'Applied AI, data engineering & full-stack applications' },
+    { number: '38/38', label: 'Pytest Suite', sublabel: 'Automated test suite passing on DataPulse backend' },
+    { number: 'C++17', label: 'Algorithmic Rigor', sublabel: 'Valgrind-verified memory safety and benchmarks' },
+    { number: '2029', label: 'B.Tech AI & DS', sublabel: '3rd Semester candidate, Bengaluru, India' },
   ];
 
   const chronologicalTimeline = [
@@ -67,33 +67,34 @@ export const Record: React.FC = () => {
     },
   ];
 
-  const endorsements = [
+  const verifiedAchievements = [
     {
-      role: 'Academic Mentor / Professor',
-      affiliation: 'Department of AI & Data Science',
-      status: 'Recommendation Pending',
-      quote:
-        'Manoj consistently demonstrates mechanical sympathy for computing architectures, asking the foundational "why" behind data structures rather than relying on black-box libraries.',
-      isPlaceholder: true,
-      todoTag: '[TODO: Add your Professor / Faculty Mentor recommendation here]',
+      title: '38/38 Automated Pytest Suite Passing',
+      tag: 'TEST AUTOMATION',
+      metric: '38/38 PASSED',
+      description:
+        'Engineered comprehensive end-to-end integration and unit test suite covering ETL data transformations, API endpoint contracts, and warehouse queries with zero regressions.',
     },
     {
-      role: 'Project Collaborator / Peer Lead',
-      affiliation: 'Full-Stack & Systems Engineering',
-      status: 'Recommendation Pending',
-      quote:
-        'Collaborating with Manoj on data applications was seamless: strict separation of concerns, test-driven endpoints, clear Git commit hygiene, and zero compromise on code clarity.',
-      isPlaceholder: true,
-      todoTag: '[TODO: Add your project collaborator or technical lead recommendation here]',
+      title: 'Production Deployments on Render & Vercel',
+      tag: 'CLOUD DEPLOYMENT',
+      metric: '100% LIVE',
+      description:
+        'Successfully configured and deployed full-stack microservices with automated GitHub CI/CD integration, persistent database schemas, and CORS security hardening.',
     },
     {
-      role: 'Technical Advisor / Code Reviewer',
-      affiliation: 'Data Warehousing & Cloud Services',
-      status: 'Recommendation Pending',
-      quote:
-        'DataPulse reflects genuine architectural maturity: clean star schemas, async FastAPI concurrency, and well-quarantined data pipelines with reproducible benchmarks.',
-      isPlaceholder: true,
-      todoTag: '[TODO: Add industry advisor or senior peer endorsement here]',
+      title: 'Zero-Leakage ML Preprocessing Pipeline',
+      tag: 'DATA SCIENCE',
+      metric: 'STRICT ISOLATION',
+      description:
+        'Implemented strict train/test data leakage isolation protocols using Scikit-Learn transformers fitted exclusively on training splits with stratified cross-validation.',
+    },
+    {
+      title: 'Valgrind-Verified C++17 Memory Management',
+      tag: 'SYSTEMS RIGOR',
+      metric: '0 MEMORY LEAKS',
+      description:
+        'Engineered high-performance graph traversals and tree structures in modern C++17 with RAII pointers, verified with Valgrind profiling tools.',
     },
   ];
 
@@ -120,7 +121,7 @@ export const Record: React.FC = () => {
           </div>
 
           <p className="mt-4 md:mt-0 font-mono text-xs sm:text-sm text-[#0E0E0E]/80 max-w-sm uppercase tracking-wider leading-relaxed font-medium">
-            Chronological engineering milestones, academic curriculum, and peer testimonials. Grounded in real artifacts.
+            Chronological engineering milestones, academic curriculum, and verified technical outcomes. Grounded in real artifacts.
           </p>
         </div>
 
@@ -226,7 +227,7 @@ export const Record: React.FC = () => {
                   {PORTFOLIO_DATA.education.degree}
                 </h4>
                 <div className="font-mono text-xs text-[#F2EFE6]/70">
-                  Timeline: {PORTFOLIO_DATA.education.timeline} · Expected: {PORTFOLIO_DATA.education.expectedGraduation}
+                  Current Status: {PORTFOLIO_DATA.education.currentStatus} · Expected Graduation: {PORTFOLIO_DATA.education.expectedGraduation}
                 </div>
               </div>
 
@@ -259,31 +260,31 @@ export const Record: React.FC = () => {
                   <CheckCircle className="w-3.5 h-3.5 text-[#FFD60A]" />
                   First-Principles Engineering
                 </span>
-                <span className="text-[#FFD60A]">VERIFIED 2026</span>
+                <span className="text-[#FFD60A]">ACCREDITED 2026</span>
               </div>
             </div>
           </div>
         </div>
 
-        {/* What Others Say / Endorsements & Credibility Section */}
+        {/* ACHIEVEMENTS & RECOGNITION (Replacing placeholder endorsements) */}
         <div className="pt-8 border-t-2 border-[#0E0E0E]">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#0E0E0E]/20">
             <div>
               <div className="flex items-center gap-2 font-mono text-[11px] uppercase tracking-widest text-[#0E0E0E]/70 font-bold mb-1">
-                <Quote className="w-3.5 h-3.5 text-[#0E0E0E]" />
-                <span>WHAT OTHERS SAY // MENTORSHIP &amp; PEER FEEDBACK</span>
+                <Award className="w-4 h-4 text-[#0E0E0E]" />
+                <span>VERIFIABLE IMPACT // TECHNICAL BENCHMARKS</span>
               </div>
               <h3 className="font-display uppercase text-3xl sm:text-4xl text-[#0E0E0E] tracking-tight">
-                ENDORSEMENTS &amp; <span className="font-serif italic font-normal">Credibility.</span>
+                ACHIEVEMENTS &amp; <span className="font-serif italic font-normal">Recognition.</span>
               </h3>
             </div>
-            <span className="font-mono text-xs text-[#0E0E0E]/70 mt-2 sm:mt-0 uppercase">
-              CONFIDENTIAL · VERIFIED CONTACTS
+            <span className="font-mono text-xs text-[#0E0E0E]/70 mt-2 sm:mt-0 uppercase font-semibold">
+              EVIDENCE-BASED · AUDITED MILESTONES
             </span>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {endorsements.map((item, i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {verifiedAchievements.map((item, i) => (
               <div
                 key={i}
                 className="p-6 rounded-3xl bg-[#0E0E0E] text-[#F2EFE6] border-2 border-[#0E0E0E] flex flex-col justify-between space-y-4 shadow-md transition-transform hover:-translate-y-1 duration-200"
@@ -291,28 +292,23 @@ export const Record: React.FC = () => {
                 <div className="space-y-3">
                   <div className="flex items-center justify-between">
                     <span className="font-mono text-[9px] font-bold tracking-widest uppercase bg-[#FFD60A] text-[#0E0E0E] px-2 py-0.5 rounded">
-                      {item.status}
+                      {item.tag}
                     </span>
-                    <Quote className="w-4 h-4 text-[#FFD60A]/40" />
+                    <Terminal className="w-3.5 h-3.5 text-[#FFD60A]" />
                   </div>
 
-                  <p className="text-xs sm:text-[13px] text-[#F2EFE6]/90 font-serif italic leading-relaxed">
-                    &ldquo;{item.quote}&rdquo;
+                  <div className="font-display uppercase text-lg sm:text-xl text-[#F2EFE6] tracking-tight leading-snug">
+                    {item.title}
+                  </div>
+
+                  <p className="text-xs text-[#F2EFE6]/80 font-sans leading-relaxed">
+                    {item.description}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-[#F2EFE6]/15 space-y-1">
-                  <div className="font-mono text-xs font-bold text-[#FFD60A]">
-                    {item.role}
-                  </div>
-                  <div className="font-mono text-[10.5px] text-[#F2EFE6]/50">
-                    {item.affiliation}
-                  </div>
-                  {item.todoTag && (
-                    <div className="pt-1.5 font-mono text-[9.5px] text-[#FFD60A]/70 uppercase tracking-wider">
-                      {item.todoTag}
-                    </div>
-                  )}
+                <div className="pt-3 border-t border-[#F2EFE6]/15 flex items-center justify-between font-mono text-[11px]">
+                  <span className="text-[#F2EFE6]/50">RESULT</span>
+                  <span className="font-bold text-[#FFD60A]">{item.metric}</span>
                 </div>
               </div>
             ))}

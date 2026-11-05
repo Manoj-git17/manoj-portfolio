@@ -23,13 +23,13 @@ const HOME_Z = 0.10;
 
 // Deep background tech tags floating far back in safe zones
 const BACKGROUND_TAGS = [
-  { text: 'REACT 19', pos: [-6.8, 4.0, -8.0] as [number, number, number] },
+  { text: 'PYTHON', pos: [-6.8, 4.0, -8.0] as [number, number, number] },
   { text: 'FASTAPI', pos: [-3.8, 4.5, -8.5] as [number, number, number] },
-  { text: 'DATA PIPELINES', pos: [0.0, 4.7, -8.5] as [number, number, number] },
+  { text: 'MACHINE LEARNING', pos: [0.0, 4.7, -8.5] as [number, number, number] },
   { text: 'POSTGRESQL', pos: [3.8, 4.5, -8.5] as [number, number, number] },
-  { text: 'GEMINI API', pos: [6.8, 4.0, -8.0] as [number, number, number] },
-  { text: 'STAR SCHEMA', pos: [-6.4, -0.8, -7.5] as [number, number, number] },
-  { text: 'DETERMINISTIC', pos: [6.2, -0.8, -7.5] as [number, number, number] },
+  { text: 'ETL PIPELINES', pos: [6.8, 4.0, -8.0] as [number, number, number] },
+  { text: 'DATA MODELING', pos: [-6.4, -0.8, -7.5] as [number, number, number] },
+  { text: 'C++ SYSTEMS', pos: [6.2, -0.8, -7.5] as [number, number, number] },
 ];
 
 /* -------------------------------------------------------------------------- */

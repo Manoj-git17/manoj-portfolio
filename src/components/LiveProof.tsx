@@ -31,13 +31,6 @@ const FALLBACK_COMMITS: CommitDisplay[] = [
     url: 'https://github.com/Manoj-git17/ai-task-manager',
   },
   {
-    sha: '47cc9e6',
-    message: 'feat: add DataPulse live demo to portfolio',
-    repoName: 'Manoj-git17/manoj-portfolio',
-    timeAgo: 'Recently',
-    url: 'https://github.com/Manoj-git17/manoj-portfolio/commit/47cc9e6',
-  },
-  {
     sha: '9c98dad',
     message: 'feat: integrate Star Schema data warehouse & FastAPI backend',
     repoName: 'Manoj-git17/DataPulse',
@@ -56,7 +49,14 @@ const FALLBACK_COMMITS: CommitDisplay[] = [
     message: 'perf: optimize tabular chunk ingestion and memory profiling',
     repoName: 'Manoj-git17/data-pipeline-insights',
     timeAgo: 'Recently',
-    url: 'https://github.com/Manoj-git17/DataPulse',
+    url: 'https://github.com/Manoj-git17/data-pipeline-insights',
+  },
+  {
+    sha: '47cc9e6',
+    message: 'feat: add DataPulse live demo and recruiter documentation',
+    repoName: 'Manoj-git17/manoj-portfolio',
+    timeAgo: 'Recently',
+    url: 'https://github.com/Manoj-git17/manoj-portfolio',
   },
 ];
 
@@ -268,7 +268,7 @@ export const LiveProof: React.FC = () => {
             </div>
 
             {/* 30-Day Contribution Density Matrix */}
-            <div className="p-5 sm:p-6 rounded-3xl bg-[#161616]/90 backdrop-blur-md border border-[#F2EFE6]/15 space-y-4">
+            <div className="p-5 sm:p-6 rounded-3xl bg-[#161616]/90 backdrop-blur-md border border-[#F2EFE6]/15 space-y-4 overflow-hidden">
               <div className="flex items-center justify-between border-b border-[#F2EFE6]/10 pb-3">
                 <span className="font-mono text-xs font-bold uppercase text-[#FFD60A] flex items-center gap-2">
                   <GitPullRequest className="w-4 h-4 text-[#FFD60A]" />
@@ -277,23 +277,25 @@ export const LiveProof: React.FC = () => {
                 <span className="font-mono text-[10px] text-[#F2EFE6]/50">30-DAY CYCLES</span>
               </div>
 
-              {/* Heatmap Grid */}
-              <div className="space-y-1.5 py-1">
-                {activityBlocks.map((row, rIdx) => (
-                  <div key={rIdx} className="grid grid-cols-7 gap-1.5">
-                    {row.map((cell, cIdx) => (
-                      <div
-                        key={cIdx}
-                        className={`h-7 rounded-md flex items-center justify-center font-mono text-[10px] font-bold transition-all hover:scale-110 ${getColorClass(
-                          cell
-                        )}`}
-                        title={`Day ${rIdx * 7 + cIdx + 1}: ${cell} commits`}
-                      >
-                        {cell > 0 ? cell : ''}
-                      </div>
-                    ))}
-                  </div>
-                ))}
+              {/* Heatmap Grid with Mobile Horizontal Scroll Safety */}
+              <div className="overflow-x-auto pb-1">
+                <div className="min-w-[280px] space-y-1.5 py-1">
+                  {activityBlocks.map((row, rIdx) => (
+                    <div key={rIdx} className="grid grid-cols-7 gap-1.5">
+                      {row.map((cell, cIdx) => (
+                        <div
+                          key={cIdx}
+                          className={`h-7 rounded-md flex items-center justify-center font-mono text-[10px] font-bold transition-all hover:scale-110 ${getColorClass(
+                            cell
+                          )}`}
+                          title={`Day ${rIdx * 7 + cIdx + 1}: ${cell} commits`}
+                        >
+                          {cell > 0 ? cell : ''}
+                        </div>
+                      ))}
+                    </div>
+                  ))}
+                </div>
               </div>
 
               {/* Heatmap Legend */}
@@ -360,9 +362,6 @@ export const LiveProof: React.FC = () => {
                   <p className="font-mono text-xs text-[#F2EFE6]/70 leading-relaxed">
                     Foundational data structures, balanced search trees, and asymptotic graph traversals (BFS, DFS, Dijkstra) are verified in C++17 inside the public repository catalog.
                   </p>
-                  <div className="text-[10.5px] font-mono text-[#F2EFE6]/40 italic">
-                    [TODO: Add your LeetCode / HackerRank handle in src/data/portfolioData.ts to activate dynamic profile card]
-                  </div>
                 </div>
               )}
 

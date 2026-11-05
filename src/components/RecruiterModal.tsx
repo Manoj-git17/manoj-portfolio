@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { X, Check, Copy, FileText, ExternalLink, Mail, MapPin, Calendar, Briefcase, Award } from 'lucide-react';
+import { X, Check, Copy, FileText, ExternalLink, Mail, MapPin, Calendar, Briefcase, GraduationCap, Sparkles } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
+import { GithubIcon, LinkedinIcon } from './Icons';
 
 interface RecruiterModalProps {
   isOpen: boolean;
@@ -33,13 +34,20 @@ export const RecruiterModal: React.FC<RecruiterModalProps> = ({
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     } catch {
-      // Fallback
       setCopied(true);
       setTimeout(() => setCopied(false), 3000);
     }
   };
 
-  const flagshipProject = PORTFOLIO_DATA.projects.find((p) => p.id === 'datapulse');
+  const scrollToProjects = () => {
+    onClose();
+    const el = document.getElementById('projects');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const flagshipProject = PORTFOLIO_DATA.projects[0];
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto">
@@ -57,7 +65,7 @@ export const RecruiterModal: React.FC<RecruiterModalProps> = ({
             <span className="w-2.5 h-2.5 rounded-full bg-[#FFD60A] animate-pulse"></span>
             <div>
               <span className="font-mono text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-[#FFD60A] font-bold block">
-                EXECUTIVE DOSSIER · 30-SECOND BRIEF
+                RECRUITER OVERVIEW · 30-SECOND DOSSIER
               </span>
               <h2 className="font-display uppercase text-2xl sm:text-3xl text-[#F2EFE6] tracking-tight leading-none mt-0.5">
                 {PORTFOLIO_DATA.personal.name}
@@ -76,141 +84,174 @@ export const RecruiterModal: React.FC<RecruiterModalProps> = ({
 
         {/* Content Body */}
         <div className="p-5 sm:p-7 space-y-6 max-h-[75vh] overflow-y-auto">
-          {/* Target Role & Availability Strip */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 p-4 rounded-2xl bg-[#1A1A1A] border border-[#F2EFE6]/10 font-mono text-xs">
+          {/* Candidate Profile Details Card */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 p-4 rounded-2xl bg-[#1A1A1A] border border-[#F2EFE6]/10 font-mono text-xs">
             <div className="space-y-1">
-              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider block flex items-center gap-1">
-                <Briefcase className="w-3 h-3 text-[#FFD60A]" /> Target Role
+              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider flex items-center gap-1">
+                <Briefcase className="w-3 h-3 text-[#FFD60A]" /> Candidate
               </span>
-              <p className="text-[#F2EFE6] font-bold">{PORTFOLIO_DATA.personal.targetRole}</p>
+              <p className="text-[#F2EFE6] font-bold">{PORTFOLIO_DATA.personal.name}</p>
+            </div>
+
+            <div className="space-y-1 sm:col-span-2">
+              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider flex items-center gap-1">
+                <GraduationCap className="w-3 h-3 text-[#FFD60A]" /> Degree &amp; Status
+              </span>
+              <p className="text-[#F2EFE6] font-bold">
+                {PORTFOLIO_DATA.education.degree} ({PORTFOLIO_DATA.education.currentStatus})
+              </p>
             </div>
 
             <div className="space-y-1">
-              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider block flex items-center gap-1">
-                <Calendar className="w-3 h-3 text-[#FFD60A]" /> Availability
+              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider flex items-center gap-1">
+                <Calendar className="w-3 h-3 text-[#FFD60A]" /> Expected Graduation
               </span>
-              <p className="text-[#FFD60A] font-bold">{PORTFOLIO_DATA.personal.internshipAvailability}</p>
+              <p className="text-[#FFD60A] font-bold">{PORTFOLIO_DATA.education.expectedGraduation}</p>
             </div>
 
             <div className="space-y-1">
-              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider block flex items-center gap-1">
+              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider flex items-center gap-1">
                 <MapPin className="w-3 h-3 text-[#FFD60A]" /> Location
               </span>
               <p className="text-[#F2EFE6] font-bold">{PORTFOLIO_DATA.personal.location}</p>
             </div>
-          </div>
 
-          {/* Top 3 Core Engineering Skills */}
-          <div className="space-y-2.5">
-            <span className="font-mono text-[10.5px] uppercase tracking-widest text-[#FFD60A] font-bold block">
-              TOP 3 PROVEN ENGINEERING CAPABILITIES
-            </span>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
-              <div className="p-3.5 rounded-xl bg-[#18181A] border border-[#F2EFE6]/10 space-y-1">
-                <div className="font-mono text-xs font-bold text-[#F2EFE6] flex items-center gap-1.5">
-                  <span className="text-[#FFD60A]">01.</span>
-                  <span>Data Engineering &amp; ETL</span>
-                </div>
-                <p className="text-[11px] text-[#F2EFE6]/70 leading-relaxed">
-                  Relational star schemas, Pandas chunk pipelines, multi-table SQL queries, and zero data leakage.
-                </p>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-[#18181A] border border-[#F2EFE6]/10 space-y-1">
-                <div className="font-mono text-xs font-bold text-[#F2EFE6] flex items-center gap-1.5">
-                  <span className="text-[#FFD60A]">02.</span>
-                  <span>Full-Stack Systems</span>
-                </div>
-                <p className="text-[11px] text-[#F2EFE6]/70 leading-relaxed">
-                  React 19 + TypeScript frontend with asynchronous FastAPI backends, sub-second APIs, and SQLAlchemy.
-                </p>
-              </div>
-
-              <div className="p-3.5 rounded-xl bg-[#18181A] border border-[#F2EFE6]/10 space-y-1">
-                <div className="font-mono text-xs font-bold text-[#F2EFE6] flex items-center gap-1.5">
-                  <span className="text-[#FFD60A]">03.</span>
-                  <span>Algorithmic Rigor</span>
-                </div>
-                <p className="text-[11px] text-[#F2EFE6]/70 leading-relaxed">
-                  Modern C++17 implementations, memory leak verification via Valgrind, and 38/38 automated test suites.
-                </p>
-              </div>
+            <div className="space-y-1">
+              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider flex items-center gap-1">
+                <Briefcase className="w-3 h-3 text-[#FFD60A]" /> Work Preferences
+              </span>
+              <p className="text-[#FFD60A] font-bold">{PORTFOLIO_DATA.personal.workPreferences}</p>
             </div>
           </div>
 
-          {/* Best Project Feature */}
-          <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#1C1C1C] to-[#141414] border-2 border-[#FFD60A]/40 space-y-3">
-            <div className="flex flex-wrap items-center justify-between gap-2">
-              <div className="flex items-center gap-2">
-                <Award className="w-4 h-4 text-[#FFD60A]" />
-                <span className="font-mono text-[11px] font-bold text-[#FFD60A] uppercase tracking-wider">
-                  FLAGSHIP PROJECT TO INSPECT:
-                </span>
-                <span className="font-bold text-white text-sm sm:text-base">
-                  {flagshipProject?.title}
-                </span>
-              </div>
+          {/* Interested Roles Banner */}
+          <div className="p-4 rounded-2xl bg-[#18181A] border border-[#FFD60A]/30 space-y-1.5">
+            <span className="font-mono text-[10px] uppercase tracking-widest text-[#FFD60A] font-bold block">
+              TARGET INTERNSHIP ROLES
+            </span>
+            <p className="font-mono text-xs sm:text-sm text-[#F2EFE6] font-semibold">
+              {PORTFOLIO_DATA.personal.interestedRoles}
+            </p>
+            <p className="text-xs text-[#F2EFE6]/60">
+              Availability: {PORTFOLIO_DATA.personal.internshipAvailability}
+            </p>
+          </div>
 
-              <div className="flex items-center gap-2">
-                {flagshipProject?.liveDemoUrl && (
+          {/* Flagship Project Highlight */}
+          {flagshipProject && (
+            <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-[#1C1C1C] to-[#141414] border-2 border-[#FFD60A]/40 space-y-3">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#FFD60A]" />
+                  <span className="font-mono text-[11px] font-bold text-[#FFD60A] uppercase tracking-wider">
+                    FLAGSHIP PROJECT:
+                  </span>
+                  <span className="font-bold text-white text-sm sm:text-base">
+                    {flagshipProject.shortTitle}
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  {flagshipProject.liveDemoUrl && (
+                    <a
+                      href={flagshipProject.liveDemoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FFD60A] text-[#0E0E0E] font-mono text-[11px] font-bold uppercase transition-transform hover:scale-105"
+                    >
+                      <span>Live Demo</span>
+                      <ExternalLink className="w-3 h-3" />
+                    </a>
+                  )}
                   <a
-                    href={flagshipProject.liveDemoUrl}
+                    href={flagshipProject.githubUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#FFD60A] text-[#0E0E0E] font-mono text-[11px] font-bold uppercase transition-transform hover:scale-105"
+                    className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#2A2A2A] text-[#F2EFE6] hover:text-[#FFD60A] font-mono text-[11px] font-medium uppercase transition-colors"
                   >
-                    <span>Live Demo</span>
+                    <span>Code</span>
                     <ExternalLink className="w-3 h-3" />
                   </a>
-                )}
-                <a
-                  href={flagshipProject?.githubUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-3 py-1 rounded-full bg-[#2A2A2A] text-[#F2EFE6] hover:text-[#FFD60A] font-mono text-[11px] font-medium uppercase transition-colors"
-                >
-                  <span>Code</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
+                </div>
+              </div>
+
+              <p className="text-xs sm:text-[13px] text-[#F2EFE6]/90 leading-relaxed font-sans">
+                {flagshipProject.tagline}
+              </p>
+
+              <div className="flex flex-wrap gap-1.5 pt-1">
+                {flagshipProject.technologies.map((t) => (
+                  <span
+                    key={t}
+                    className="px-2 py-0.5 rounded bg-[#0E0E0E] text-[#F2EFE6]/80 border border-[#F2EFE6]/10 font-mono text-[10px]"
+                  >
+                    {t}
+                  </span>
+                ))}
               </div>
             </div>
+          )}
 
-            <p className="text-xs sm:text-[13px] text-[#F2EFE6]/90 leading-relaxed italic font-serif">
-              &ldquo;Production-grade full-stack architecture with automated ETL, star schema warehouse, sub-second API latency, and 38/38 passing CI test suite.&rdquo;
-            </p>
-
-            <div className="flex flex-wrap gap-1.5 pt-1">
-              {flagshipProject?.technologies.map((t) => (
-                <span
-                  key={t}
-                  className="px-2 py-0.5 rounded bg-[#0E0E0E] text-[#F2EFE6]/70 border border-[#F2EFE6]/10 font-mono text-[10px]"
-                >
-                  {t}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Education & Degree */}
-          <div className="p-3.5 rounded-xl bg-[#18181A] border border-[#F2EFE6]/10 flex flex-wrap items-center justify-between gap-2 font-mono text-xs">
-            <div>
-              <span className="text-[#F2EFE6]/50 text-[10px] uppercase tracking-wider block">
-                Academic Degree
-              </span>
-              <p className="text-[#F2EFE6] font-medium mt-0.5">
-                {PORTFOLIO_DATA.education.degree}
-              </p>
-            </div>
-            <span className="px-2.5 py-1 rounded-full bg-[#242424] text-[#FFD60A] font-bold text-[11px]">
-              {PORTFOLIO_DATA.education.timeline}
+          {/* Quick Direct Links Strip */}
+          <div className="space-y-2">
+            <span className="font-mono text-[10.5px] uppercase tracking-widest text-[#F2EFE6]/60 font-bold block">
+              PRIMARY CHANNELS &amp; ARTIFACTS
             </span>
+
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 font-mono text-xs">
+              <a
+                href={PORTFOLIO_DATA.personal.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-[#1A1A1A] hover:bg-[#222222] border border-[#F2EFE6]/10 flex items-center justify-between transition-colors text-[#F2EFE6] hover:text-[#FFD60A]"
+              >
+                <div className="flex items-center gap-2">
+                  <GithubIcon className="w-4 h-4 text-[#FFD60A]" />
+                  <span>GitHub</span>
+                </div>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+
+              <a
+                href={PORTFOLIO_DATA.personal.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-3 rounded-xl bg-[#1A1A1A] hover:bg-[#222222] border border-[#F2EFE6]/10 flex items-center justify-between transition-colors text-[#F2EFE6] hover:text-[#FFD60A]"
+              >
+                <div className="flex items-center gap-2">
+                  <LinkedinIcon className="w-4 h-4 text-[#FFD60A]" />
+                  <span>LinkedIn</span>
+                </div>
+                <ExternalLink className="w-3 h-3" />
+              </a>
+
+              <button
+                onClick={scrollToProjects}
+                className="p-3 rounded-xl bg-[#1A1A1A] hover:bg-[#222222] border border-[#F2EFE6]/10 flex items-center justify-between transition-colors text-[#F2EFE6] hover:text-[#FFD60A] cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-[#FFD60A]" />
+                  <span>Projects (5)</span>
+                </div>
+                <ExternalLink className="w-3 h-3" />
+              </button>
+
+              <button
+                onClick={handleCopyEmail}
+                className="p-3 rounded-xl bg-[#1A1A1A] hover:bg-[#222222] border border-[#F2EFE6]/10 flex items-center justify-between transition-colors text-[#F2EFE6] hover:text-[#FFD60A] cursor-pointer"
+              >
+                <div className="flex items-center gap-2">
+                  <Mail className="w-4 h-4 text-[#FFD60A]" />
+                  <span>{copied ? 'Copied!' : 'Email'}</span>
+                </div>
+                <Copy className="w-3 h-3" />
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Footer Actions Strip: Copy Email, Download CV, Direct Mail */}
         <div className="p-4 sm:p-5 bg-[#18181A] border-t border-[#F2EFE6]/10 flex flex-wrap items-center justify-between gap-3">
-          {/* Toast / Copy Status */}
           <div className="flex items-center gap-2">
             <button
               onClick={handleCopyEmail}
@@ -251,7 +292,7 @@ export const RecruiterModal: React.FC<RecruiterModalProps> = ({
               className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-[#FFD60A] hover:bg-[#ffe043] text-[#0E0E0E] font-mono text-xs font-bold uppercase tracking-wider transition-transform hover:scale-105 cursor-pointer shadow-md"
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>Download CV (PDF)</span>
+              <span>Download Resume / CV</span>
             </button>
           </div>
         </div>

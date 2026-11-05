@@ -262,7 +262,7 @@ export const HireMe: React.FC<HireMeProps> = ({ onOpenResume }) => {
         <footer className="mt-16 pt-8 border-t-2 border-[#0E0E0E] flex flex-col md:flex-row items-center justify-between gap-4 font-mono text-[11px] text-[#6B6862]">
           <div className="flex flex-wrap items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#E5321B]"></span>
-            <span className="text-[#0E0E0E] font-bold">MANOJ</span>
+            <span className="text-[#0E0E0E] font-bold">{PORTFOLIO_DATA.personal.name}</span>
             <span>·</span>
             <span>{PORTFOLIO_DATA.personal.location.toUpperCase()}</span>
             <span>·</span>

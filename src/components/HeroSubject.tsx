@@ -9,7 +9,7 @@ interface HeroSubjectProps {
 
 // Auto light-sweep position (for mobile where no cursor exists)
 function useAutoLightSweep(isMobile: boolean) {
-  const [sweepX, setSweepX] = useState(50); // percentage 0-100
+  const [sweepX, setSweepX] = useState(50);
   const dirRef = useRef(1);
   const rafRef = useRef<number>(0);
 
@@ -47,7 +47,7 @@ function useGyroTilt(isMobile: boolean) {
       typeof DeviceOrientationEvent !== 'undefined' &&
       typeof (DeviceOrientationEvent as unknown as { requestPermission?: () => Promise<string> }).requestPermission === 'function'
     ) {
-      // Permission can be requested on first tap
+      // Handled on user interaction if needed
     } else if (typeof window !== 'undefined' && 'DeviceOrientationEvent' in window) {
       window.addEventListener('deviceorientation', handleOrientation, { passive: true });
     }
@@ -102,31 +102,31 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
             className="absolute top-[28%] left-[4%] font-mono text-[10px] text-[#FFD60A]/30 tracking-widest uppercase select-none animate-float-gentle"
             style={{ ['--sticker-rot' as any]: '-4deg' }}
           >
-            REACT 19
+            PYTHON
           </span>
           <span
             className="absolute top-[28%] right-[4%] font-mono text-[10px] text-[#FFD60A]/30 tracking-widest uppercase select-none animate-float-gentle"
             style={{ ['--sticker-rot' as any]: '5deg', animationDelay: '1.2s' }}
           >
-            FASTAPI
+            MACHINE LEARNING
           </span>
           <span
             className="absolute top-[42%] left-[3%] font-mono text-[10px] text-[#FFD60A]/25 tracking-widest uppercase select-none animate-float-gentle"
             style={{ ['--sticker-rot' as any]: '3deg', animationDelay: '0.8s' }}
           >
-            POSTGRESQL
+            FASTAPI
           </span>
           <span
             className="absolute top-[42%] right-[3%] font-mono text-[10px] text-[#FFD60A]/25 tracking-widest uppercase select-none animate-float-gentle"
             style={{ ['--sticker-rot' as any]: '-3deg', animationDelay: '2s' }}
           >
-            GEMINI 1.5
+            POSTGRESQL
           </span>
           <span
             className="absolute top-[56%] left-[6%] font-mono text-[10px] text-[#FFD60A]/20 tracking-widest uppercase select-none animate-float-gentle"
             style={{ ['--sticker-rot' as any]: '2deg', animationDelay: '1.6s' }}
           >
-            PYTHON ETL
+            ETL PIPELINES
           </span>
         </div>
 
@@ -146,21 +146,24 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
           </div>
         </div>
 
-        {/* ── 2. NAME: "MANOJ." SCALED TO ~90% OF SCREEN WIDTH, FULLY VISIBLE ── */}
+        {/* ── 2. NAME & TITLE: "MANOJ P.S." SCALED TO ~90% OF SCREEN WIDTH ── */}
         <div className="relative z-10 w-full my-2 text-center pointer-events-none select-none">
           <h2
             className="font-display uppercase tracking-tight text-[#FFD60A] leading-[0.88] mx-auto block"
             style={{
-              fontSize: 'clamp(54px, 20vw, 86px)',
-              width: '92%',
+              fontSize: 'clamp(46px, 16vw, 76px)',
+              width: '94%',
               textShadow: '0 4px 30px rgba(255, 214, 10, 0.35)',
               WebkitTextStroke: '1px rgba(255, 214, 10, 0.4)',
             }}
           >
-            MANOJ.
+            {PORTFOLIO_DATA.personal.name}
           </h2>
+          <div className="mt-1 font-mono text-[11px] text-[#F2EFE6]/90 uppercase tracking-wider font-semibold">
+            {PORTFOLIO_DATA.personal.role}
+          </div>
           <div className="flex items-center justify-center gap-2 mt-1">
-            <span className="inline-flex items-center gap-1.5 text-[10px] font-mono text-[#F2EFE6]/60 uppercase tracking-widest">
+            <span className="inline-flex items-center gap-1.5 text-[10.5px] font-mono text-[#F2EFE6]/60 uppercase tracking-widest">
               <Sparkles className="w-3 h-3 text-[#FFD60A]" />
               {PORTFOLIO_DATA.personal.location}
             </span>
@@ -184,7 +187,7 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
           {/* Photo cutout */}
           <img
             src="/me.png"
-            alt="Manoj Portrait"
+            alt="Manoj P.S. Portrait"
             className="w-full h-full object-contain object-bottom pointer-events-none"
             style={{
               transform: `translate3d(${tilt.x * 8}px, ${tilt.y * 6}px, 0)`,
@@ -204,28 +207,23 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
           />
         </div>
 
-        {/* ── 4. TEXT CONTENT (Seeking line, Tagline, Focus description) ── */}
+        {/* ── 4. TEXT CONTENT (Seeking line, Description) ── */}
         <div className="relative z-10 w-full space-y-3 mt-1">
-          {/* Seeking Line */}
+          {/* Availability Strip */}
           <div className="p-3.5 rounded-2xl bg-[#141416]/95 backdrop-blur-md border-l-4 border-[#FFD60A] border-y border-r border-[#F2EFE6]/15 font-mono text-[12px] text-[#F2EFE6] leading-relaxed shadow-lg">
-            <span className="text-[#FFD60A] font-bold">SEEKING:</span>{' '}
-            <span className="text-white font-semibold">{PORTFOLIO_DATA.personal.targetRole}</span>{' '}
-            <span className="text-[#F2EFE6]/40">·</span>{' '}
-            <span className="text-[#FFD60A] font-medium">{PORTFOLIO_DATA.personal.internshipAvailability}</span>
+            <span className="text-[#FFD60A] font-bold">AVAILABILITY:</span>{' '}
+            <span className="text-white font-medium">{PORTFOLIO_DATA.personal.internshipAvailability}</span>
           </div>
 
-          {/* Tagline & Focus */}
+          {/* Professional Description */}
           <div className="space-y-1.5 pt-1">
-            <div className="text-[clamp(20px,6vw,26px)] font-serif italic text-[#FFD60A] leading-tight">
-              &ldquo;{MAGAZINE_THEME.editorial.tagline}&rdquo;
-            </div>
-            <p className="text-[14px] text-[#F2EFE6]/80 leading-relaxed font-sans">
-              Specializing in scalable full-stack architectures, relational data warehousing, automated ETL pipelines, and high-performance intelligent interfaces.
+            <p className="text-[14px] text-[#F2EFE6]/85 leading-relaxed font-sans">
+              {PORTFOLIO_DATA.personal.description}
             </p>
           </div>
         </div>
 
-        {/* ── 5. STATS: 3-COLUMN ROW WITH SMALLER NUMBERS ── */}
+        {/* ── 5. STATS: 3-COLUMN ROW ── */}
         <div className="relative z-10 w-full mt-5 pt-4 border-t border-[#F2EFE6]/15 grid grid-cols-3 gap-2 text-left">
           {/* Stat 1: 38+ in Yellow */}
           <div className="flex flex-col items-start">
@@ -243,7 +241,7 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
               38+
             </span>
             <span className="font-mono text-[10px] uppercase tracking-wider text-[#FFD60A] mt-1.5 font-bold leading-tight">
-              Tests Passed
+              Pytests Passed
             </span>
           </div>
 
@@ -256,7 +254,7 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
               {`0${TOTAL_PROJECTS_COUNT}`}
             </span>
             <span className="font-mono text-[10px] uppercase tracking-wider text-[#F2EFE6]/70 mt-1.5 leading-tight">
-              Systems
+              Systems Built
             </span>
           </div>
 
@@ -280,7 +278,7 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
             onClick={scrollToCaseFiles}
             className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 rounded-full bg-[#FFD60A] hover:bg-[#ffe043] text-[#0E0E0E] font-mono text-[13px] font-bold tracking-wider uppercase transition-all active:scale-[0.98] shadow-[0_8px_30px_rgba(255,214,10,0.35)] cursor-pointer"
           >
-            <span>View case files</span>
+            <span>View Projects</span>
             <ArrowDownRight className="w-4 h-4" />
           </button>
 
@@ -289,20 +287,19 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
             className="w-full min-h-[48px] inline-flex items-center justify-center gap-2 rounded-full bg-[#18181A]/95 text-[#F2EFE6] border-2 border-[#F2EFE6]/30 font-mono text-[13px] font-bold tracking-wider uppercase transition-all active:scale-[0.98] cursor-pointer backdrop-blur-sm"
           >
             <FileText className="w-4 h-4 text-[#FFD60A]" />
-            <span>Download resume</span>
+            <span>Download Resume</span>
           </button>
         </div>
       </section>
     );
   }
 
-  // ── DESKTOP LAYOUT (> 768px, UNTOUCHED) ───────────────────────
+  // ── DESKTOP LAYOUT (> 768px) ──────────────────────────────────
   return (
     <section
       id="subject"
       className="relative min-h-[100svh] bg-transparent text-[#F2EFE6] overflow-hidden pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-12 sm:pb-20 flex flex-col justify-between selection:bg-[#FFD60A] selection:text-[#0E0E0E] pointer-events-none"
     >
-      {/* Screen-reader heading for SEO and accessibility */}
       <h1 className="sr-only">
         {PORTFOLIO_DATA.personal.name} — {PORTFOLIO_DATA.personal.role}
       </h1>
@@ -316,17 +313,17 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
           </div>
 
           <div className="flex items-center gap-3">
-            <span>{MAGAZINE_THEME.editorial.est}</span>
+            <span>{PORTFOLIO_DATA.personal.location}</span>
             <span className="text-[#FFD60A]">●</span>
-            <span>STATUS: ACTIVE</span>
+            <span>STATUS: ACTIVE EXPLORATION</span>
           </div>
         </div>
 
-        {/* Interactive Torch & Physics Guidance */}
+        {/* Interactive Workspace Guidance */}
         <div className="pt-2 flex items-center justify-between text-[11px] font-mono tracking-wider">
           <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full bg-[#141416]/90 border border-[#FFD60A]/35 text-[#FFD60A] text-[11px] font-bold">
             <Sparkles className="w-3.5 h-3.5 animate-pulse text-[#FFD60A]" />
-            <span>SWEEP TORCH TO ILLUMINATE · 3D DYNAMIC WORKSPACE</span>
+            <span>SWEEP TO ILLUMINATE · 3D DYNAMIC WORKSPACE</span>
           </div>
           <div className="hidden lg:block text-[#F2EFE6]/40 text-[10px]">
             INTERACTIVE REACT THREE FIBER ENGINE
@@ -338,45 +335,40 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
       <div className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 my-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pointer-events-none">
         {/* Left Column */}
         <div className="lg:col-span-7 flex flex-col justify-center space-y-5 sm:space-y-6 pointer-events-none">
-          {/* Clearance for the giant 3D extruded "MANOJ." letters */}
+          {/* Clearance for the 3D extruded name letters */}
           <div className="h-28 sm:h-36 lg:h-44 w-full pointer-events-none" aria-hidden="true" />
 
-          {/* Status Chips Bar */}
+          {/* Status Chips Bar: Open to Internships + Role */}
           <div className="flex flex-wrap items-center gap-2.5 pointer-events-auto">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#141416]/90 backdrop-blur-md border border-[#FFD60A]/40 text-[#F2EFE6] font-mono text-xs tracking-wider uppercase shadow-md">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FFD60A] opacity-75" />
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFD60A]" />
               </span>
-              <span className="text-[#FFD60A] font-bold">OPEN TO WORK</span>
+              <span className="text-[#FFD60A] font-bold">OPEN TO INTERNSHIPS</span>
               <span className="text-[#F2EFE6]/30">·</span>
               <span className="text-[#F2EFE6]/80">{PORTFOLIO_DATA.personal.location}</span>
             </div>
 
-            <a
-              href="#toolkit"
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFD60A] text-[#0E0E0E] font-mono text-[11px] font-bold tracking-wider uppercase transition-transform hover:scale-105 shadow-md"
-            >
-              <span>{MAGAZINE_THEME.editorial.primarySkillTag}</span>
-            </a>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFD60A] text-[#0E0E0E] font-mono text-[11px] font-bold tracking-wider uppercase shadow-md">
+              <span>{PORTFOLIO_DATA.personal.role}</span>
+            </div>
           </div>
 
-          {/* 10-Second Recruiter Line */}
+          {/* 10-Second Recruiter Line: Concise Availability */}
           <div className="p-3.5 sm:p-4 rounded-2xl bg-[#141416]/90 backdrop-blur-md border-l-4 border-[#FFD60A] border-y border-r border-[#F2EFE6]/15 font-mono text-xs sm:text-sm text-[#F2EFE6] leading-relaxed max-w-xl shadow-lg pointer-events-auto">
-            <span className="text-[#FFD60A] font-bold">SEEKING:</span>{' '}
-            <span className="text-white font-semibold">{PORTFOLIO_DATA.personal.targetRole}</span>{' '}
-            <span className="text-[#F2EFE6]/40">·</span>{' '}
-            <span className="text-[#FFD60A] font-medium">{PORTFOLIO_DATA.personal.internshipAvailability}</span>
+            <span className="text-[#FFD60A] font-bold">AVAILABILITY:</span>{' '}
+            <span className="text-white font-medium">{PORTFOLIO_DATA.personal.internshipAvailability}</span>
           </div>
 
-          {/* Tagline & Focus Description */}
+          {/* Name & Concise Professional Description */}
           <div className="space-y-2 max-w-xl pointer-events-none">
-            <div className="flex items-center gap-2 text-2xl sm:text-3xl md:text-4xl font-serif italic text-[#FFD60A] drop-shadow-sm">
-              <span>&ldquo;{MAGAZINE_THEME.editorial.tagline}&rdquo;</span>
+            <div className="text-3xl sm:text-4xl md:text-5xl font-display uppercase tracking-tight text-[#FFD60A] drop-shadow-sm">
+              {PORTFOLIO_DATA.personal.name}
             </div>
 
-            <p className="text-xs sm:text-sm text-[#F2EFE6]/80 leading-relaxed font-sans max-w-lg">
-              Specializing in scalable full-stack architectures, relational data warehousing, automated ETL pipelines, and high-performance intelligent interfaces.
+            <p className="text-xs sm:text-sm text-[#F2EFE6]/85 leading-relaxed font-sans max-w-lg">
+              {PORTFOLIO_DATA.personal.description}
             </p>
           </div>
 
@@ -396,7 +388,7 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
                 38+
               </span>
               <span className="font-mono text-[10px] sm:text-[11px] uppercase tracking-wider text-[#FFD60A] mt-2 font-bold">
-                Automated Tests Passed
+                Pytests Passed
               </span>
             </div>
 
@@ -419,13 +411,13 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
             </div>
           </div>
 
-          {/* TWO BUTTONS */}
+          {/* CTAs */}
           <div className="flex flex-wrap items-center gap-3 pt-2 pointer-events-auto">
             <button
               onClick={scrollToCaseFiles}
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#FFD60A] hover:bg-[#ffe043] text-[#0E0E0E] font-mono text-[13px] font-bold tracking-wider uppercase transition-all duration-200 shadow-[0_8px_30px_rgba(255,214,10,0.35)] hover:-translate-y-0.5 cursor-pointer"
             >
-              <span>View case files</span>
+              <span>View Projects</span>
               <ArrowDownRight className="w-4 h-4" />
             </button>
 
@@ -434,16 +426,16 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
               className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full bg-[#18181A]/90 hover:bg-[#222222] text-[#F2EFE6] border-2 border-[#F2EFE6]/30 hover:border-[#FFD60A] font-mono text-[13px] font-bold tracking-wider uppercase transition-all duration-200 hover:-translate-y-0.5 cursor-pointer backdrop-blur-sm"
             >
               <FileText className="w-4 h-4 text-[#FFD60A]" />
-              <span>Download resume</span>
+              <span>Download Resume</span>
             </button>
           </div>
         </div>
 
-        {/* Right Column: space for 3D scene */}
+        {/* Right Column: space for 3D visual */}
         <div className="lg:col-span-5 hidden lg:block pointer-events-none" />
       </div>
 
-      {/* Bottom Editorial Ticker Bar */}
+      {/* Bottom Ticker Bar */}
       <div className="relative z-20 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 mt-8 pt-4 border-t border-[#F2EFE6]/10 flex flex-wrap items-center justify-between gap-4 font-mono text-[11px] text-[#F2EFE6]/50 pointer-events-none">
         <div className="flex items-center gap-2">
           <span className="text-[#FFD60A]">CHAPTER 01</span>
@@ -455,7 +447,7 @@ export const HeroSubject: React.FC<HeroSubjectProps> = ({ onOpenResume }) => {
           <span>•</span>
           <span>DATA SYSTEMS &amp; AI</span>
           <span>•</span>
-          <span>REACT 19 / FASTAPI / POSTGRES</span>
+          <span>PYTHON / FASTAPI / POSTGRES</span>
         </div>
       </div>
     </section>
