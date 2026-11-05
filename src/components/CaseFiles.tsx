@@ -1,13 +1,10 @@
 import React, { useState } from 'react';
-import { ArrowUpRight, Layers, ExternalLink, CheckCircle } from 'lucide-react';
+import { ArrowUpRight, Layers, ExternalLink, CheckCircle, AlertCircle, Cpu } from 'lucide-react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
-import type { Project } from '../data/portfolioData';
-import { ProjectModal } from './ProjectModal';
-import { GithubIcon } from './Icons';
 import { TiltCard } from './TiltCard';
+import { GithubIcon } from './Icons';
 
 export const CaseFiles: React.FC = () => {
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [hoveredProject, setHoveredProject] = useState<string | null>(null);
 
   // 5 Prioritized Projects as specified by technical recruiter & engineering guidelines
@@ -16,15 +13,15 @@ export const CaseFiles: React.FC = () => {
   return (
     <section
       id="case-files"
-      className="relative bg-[#F2EFE6] text-[#0E0E0E] py-14 sm:py-24 lg:py-32 border-t border-[#0E0E0E]/15 overflow-hidden selection:bg-[#0E0E0E] selection:text-[#F2EFE6]"
+      className="relative bg-[#F2EFE6] text-[#0E0E0E] py-20 sm:py-28 lg:py-36 border-t border-[#0E0E0E]/15 overflow-hidden selection:bg-[#0E0E0E] selection:text-[#F2EFE6]"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+        {/* Section Headline Ribbon */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 sm:mb-16 pb-6 border-b-2 border-[#0E0E0E]">
           <div>
             <div className="flex items-center gap-2 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.2em] text-[#6B6862] mb-3">
-              <span className="w-2.5 h-2.5 bg-[#0E0E0E]" />
-              <span>CHAPTER 02 // ENGINEERING CASE FILES</span>
+              <span className="w-2.5 h-2.5 bg-[#FFD60A] border border-[#0E0E0E]"></span>
+              <span>CHAPTER 02 // TECHNICAL PROJECTS</span>
             </div>
 
             <h2 className="font-display uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#0E0E0E] leading-normal overflow-visible py-1">
@@ -60,7 +57,7 @@ export const CaseFiles: React.FC = () => {
                         /{projectNumber}
                       </span>
                       <div>
-                        <span className="text-[10.5px] uppercase tracking-widest text-[#6B6862] block">
+                        <span className="text-[10.5px] uppercase tracking-widest text-[#6B6862] block font-bold">
                           CASE FILE // {project.category}
                         </span>
                         <h3 className="font-display uppercase text-xl sm:text-2xl md:text-3xl text-[#0E0E0E] tracking-tight">
@@ -83,29 +80,50 @@ export const CaseFiles: React.FC = () => {
 
                   {/* Concise 2-Column Engineering Layout */}
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-                    {/* Left Column (7 cols): One-sentence description, Tech stack, Key engineering contribution, Architecture flow */}
-                    <div className="lg:col-span-7 space-y-5">
+                    {/* Left Column (7 cols): One-sentence description, Problem solved, What was built, Key technical contribution, Architecture flow, Tech stack */}
+                    <div className="lg:col-span-7 space-y-4">
                       {/* 1. One-Sentence Description */}
                       <div className="p-4 rounded-2xl bg-[#F9F7F1] border border-[#0E0E0E]/10 space-y-1">
                         <span className="font-mono text-[10px] uppercase tracking-widest text-[#0E0E0E] font-bold block">
-                          OVERVIEW
+                          SYSTEM OVERVIEW
                         </span>
                         <p className="text-sm text-[#1D1D1F] leading-relaxed font-sans font-medium">
                           {project.tagline}
                         </p>
                       </div>
 
-                      {/* 2. Key Engineering Contribution */}
+                      {/* 2. Problem Solved & What I Built Grid */}
+                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 font-sans text-xs">
+                        <div className="p-3.5 rounded-xl bg-[#FAFAFA] border border-[#0E0E0E]/10 space-y-1">
+                          <span className="font-mono text-[10px] uppercase tracking-wider text-[#6B6862] font-bold flex items-center gap-1">
+                            <AlertCircle className="w-3 h-3 text-[#E5321B]" /> PROBLEM SOLVED
+                          </span>
+                          <p className="text-[#333336] leading-relaxed">
+                            {project.problemSolved}
+                          </p>
+                        </div>
+
+                        <div className="p-3.5 rounded-xl bg-[#FAFAFA] border border-[#0E0E0E]/10 space-y-1">
+                          <span className="font-mono text-[10px] uppercase tracking-wider text-[#6B6862] font-bold flex items-center gap-1">
+                            <Cpu className="w-3 h-3 text-[#0E0E0E]" /> WHAT I BUILT
+                          </span>
+                          <p className="text-[#333336] leading-relaxed">
+                            {project.whatIBuilt}
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* 3. Key Engineering Contribution */}
                       <div className="p-4 rounded-2xl bg-[#F9F7F1] border border-[#0E0E0E]/10 space-y-1">
                         <span className="font-mono text-[10px] uppercase tracking-widest text-[#E5321B] font-bold block">
-                          KEY ENGINEERING CONTRIBUTION
+                          KEY TECHNICAL CONTRIBUTION
                         </span>
                         <p className="text-sm text-[#424245] leading-relaxed font-sans">
                           {project.keyContribution}
                         </p>
                       </div>
 
-                      {/* 3. Architecture Flow Diagram (with smooth mobile horizontal scroll) */}
+                      {/* 4. Architecture Flow Diagram (with smooth mobile horizontal scroll) */}
                       {project.diagramSteps && project.diagramSteps.length > 0 && (
                         <div className="p-4 rounded-2xl bg-[#0E0E0E] text-[#F2EFE6] border border-[#0E0E0E] space-y-2">
                           <div className="flex items-center justify-between pb-1.5 border-b border-[#F2EFE6]/15">
@@ -135,7 +153,7 @@ export const CaseFiles: React.FC = () => {
                         </div>
                       )}
 
-                      {/* 4. Tech Stack */}
+                      {/* 5. Tech Stack */}
                       <div>
                         <span className="font-mono text-[10px] uppercase tracking-widest text-[#6B6862] font-bold block mb-2">
                           TECH STACK
@@ -155,7 +173,7 @@ export const CaseFiles: React.FC = () => {
 
                     {/* Right Column (5 cols): Preview window, Verified results, Demo & GitHub buttons */}
                     <div className="lg:col-span-5 flex flex-col justify-between space-y-5 lg:border-l lg:border-[#0E0E0E]/15 lg:pl-8">
-                      {/* Interactive Visual Window */}
+                      {/* Visual Window */}
                       <div className="relative rounded-2xl border-2 border-[#0E0E0E] bg-[#141416] overflow-hidden aspect-video flex flex-col justify-between shadow-inner">
                         <div className="px-3 py-1.5 bg-[#0E0E0E] border-b border-[#F2EFE6]/10 flex items-center justify-between font-mono text-[10px] text-[#F2EFE6]/60">
                           <div className="flex items-center gap-1.5">
@@ -206,7 +224,7 @@ export const CaseFiles: React.FC = () => {
                         </div>
                       </div>
 
-                      {/* 5. Verified Results (if available) */}
+                      {/* 6. Verified Results */}
                       <div className="p-4 rounded-2xl bg-[#0E0E0E] text-[#F2EFE6] space-y-2 border border-[#0E0E0E]">
                         <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-[#FFD60A] font-bold">
                           <CheckCircle className="w-3.5 h-3.5 text-[#FFD60A]" />
@@ -217,7 +235,7 @@ export const CaseFiles: React.FC = () => {
                         </p>
                       </div>
 
-                      {/* 6 & 7. Action Buttons: Live Demo + GitHub Repository */}
+                      {/* 7. Action Buttons: Live Demo + GitHub Repository */}
                       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 pt-1">
                         {project.liveDemoUrl && (
                           <a
@@ -236,23 +254,14 @@ export const CaseFiles: React.FC = () => {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-3 bg-[#0E0E0E] hover:bg-neutral-800 text-[#F2EFE6] font-mono text-xs font-bold rounded-full uppercase transition-colors min-h-[44px]"
-                          aria-label={`View source code of ${project.title} on GitHub`}
+                          className="flex-1 inline-flex items-center justify-center gap-1.5 px-4 py-3 bg-[#0E0E0E] hover:bg-[#1A1A1A] text-[#F2EFE6] border border-[#0E0E0E] font-mono text-xs font-bold rounded-full uppercase transition-all min-h-[44px]"
+                          aria-label={`View GitHub repository for ${project.title}`}
                         >
                           <GithubIcon className="w-3.5 h-3.5" />
-                          <span>GitHub</span>
-                          <ArrowUpRight className="w-3.5 h-3.5 text-[#6B6862]" />
+                          <span>Repository</span>
+                          <ArrowUpRight className="w-3.5 h-3.5" />
                         </a>
                       </div>
-
-                      {/* Modal inspection trigger */}
-                      <button
-                        onClick={() => setActiveProject(project)}
-                        className="w-full inline-flex items-center justify-center gap-1.5 px-3 py-2 bg-transparent hover:bg-[#0E0E0E]/5 text-[#0E0E0E] border border-[#0E0E0E]/40 font-mono text-[11px] font-medium rounded-full uppercase transition-colors cursor-pointer"
-                      >
-                        <Layers className="w-3.5 h-3.5 text-[#0E0E0E]" />
-                        <span>Inspect Architecture Spec</span>
-                      </button>
                     </div>
                   </div>
                 </article>
@@ -260,30 +269,7 @@ export const CaseFiles: React.FC = () => {
             );
           })}
         </div>
-
-        {/* GitHub link footer */}
-        <div className="mt-12 text-center">
-          <p className="font-mono text-xs sm:text-sm text-[#6B6862]">
-            Explore all open source code repositories on{' '}
-            <a
-              href={PORTFOLIO_DATA.personal.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#0E0E0E] font-bold underline decoration-[#FFD60A] decoration-2 hover:text-[#E5321B] transition-colors"
-            >
-              GitHub (@Manoj-git17) ↗
-            </a>
-          </p>
-        </div>
       </div>
-
-      {/* Architectural Inspection Modal */}
-      <ProjectModal
-        project={activeProject}
-        onClose={() => setActiveProject(null)}
-      />
-
-      <div className="absolute bottom-0 inset-x-0 h-24 bg-gradient-to-b from-transparent via-[#0E0E0E]/40 to-[#0E0E0E] pointer-events-none" />
     </section>
   );
 };

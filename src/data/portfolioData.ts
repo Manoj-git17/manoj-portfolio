@@ -21,6 +21,7 @@ export interface Project {
   badge: string;
   description: string;
   problemSolved: string;
+  whatIBuilt: string;
   keyContribution: string;
   verifiedResults: string;
   architecture: string[];
@@ -44,24 +45,24 @@ export const PORTFOLIO_DATA = {
   personal: {
     name: 'MANOJ P.S.',
     wordmark: 'MANOJ P.S.',
-    role: 'AI & Data Science Engineer | Aspiring AI/ML Engineer',
+    role: 'AI & Data Science Undergraduate | Aspiring AI Engineer & Data Scientist',
     academicDegree: 'B.Tech — Artificial Intelligence & Data Science',
-    currentAcademicStatus: '3rd Semester',
+    currentAcademicStatus: '3rd Semester Undergraduate',
     expectedGraduation: '2029',
     timeline: '2025 – 2029',
-    bioHeadline: 'Building intelligent applications and data-driven solutions using Python, machine learning, and modern software engineering.',
+    bioHeadline: 'Undergraduate student in Artificial Intelligence & Data Science with hands-on focus in Machine Learning, Data Science, and Data Engineering.',
     bioSubtitle:
-      'Building intelligent applications and data-driven solutions using Python, machine learning, and modern software engineering.',
+      'Building intelligent applications, scalable ETL pipelines, and data-driven systems using Python and modern engineering practices.',
     description:
-      'Building intelligent applications and data-driven solutions using Python, machine learning, and modern software engineering.',
+      'AI & Data Science undergraduate and aspiring AI engineer. Passionate about machine learning systems, data engineering pipelines, and building reliable software applications.',
     email: 'manojps60281@gmail.com',
     github: 'https://github.com/Manoj-git17',
     linkedin: 'https://linkedin.com/in/manoj-aids',
     location: 'Bengaluru, India',
     targetRole: 'AI/ML, Data Science & Software Engineering Intern',
-    interestedRoles: 'AI/ML Intern | Data Science Intern | Python Developer Intern | Data Engineering Intern',
+    interestedRoles: 'AI/ML Intern | Data Science Intern | Data Engineering Intern | Software Engineering Intern',
     workPreferences: 'Remote | Hybrid | On-site',
-    internshipAvailability: 'Open to AI/ML, Data Science, and Software Engineering Internships',
+    internshipAvailability: 'Currently open to AI/ML, Data Science, and Software Engineering internships.',
     isOpenToWork: true,
     codingProfiles: {
       leetcode: '',
@@ -69,31 +70,42 @@ export const PORTFOLIO_DATA = {
     },
   },
 
-  // 6 Clean Recruiter-Targeted Skill Categories
+  // 7 Clean Recruiter-Targeted Skill Categories
   skillCategories: [
     {
-      title: 'Programming',
-      category: 'Programming',
+      title: 'Programming Languages',
+      category: 'Programming Languages',
       description: 'Core languages for algorithms, data structures, and production applications.',
       items: [
         { name: 'Python' },
         { name: 'C++' },
+        { name: 'SQL' },
         { name: 'JavaScript' },
         { name: 'TypeScript' },
-        { name: 'SQL' },
       ],
     },
     {
-      title: 'AI & Data Science',
-      category: 'AI & Data Science',
-      description: 'Machine learning workflows, exploratory data analysis, and model evaluation.',
+      title: 'AI & Machine Learning',
+      category: 'AI & Machine Learning',
+      description: 'Applied machine learning models, cross-validation, and LLM prompt engineering.',
       items: [
         { name: 'Machine Learning' },
-        { name: 'Pandas' },
-        { name: 'NumPy' },
-        { name: 'Data Analysis' },
+        { name: 'Scikit-Learn' },
         { name: 'Feature Engineering' },
         { name: 'Model Evaluation' },
+        { name: 'Gemini API' },
+      ],
+    },
+    {
+      title: 'Data Science & Analytics',
+      category: 'Data Science & Analytics',
+      description: 'Statistical distribution analysis, data transformation, and visualization.',
+      items: [
+        { name: 'Exploratory Data Analysis' },
+        { name: 'Pandas' },
+        { name: 'NumPy' },
+        { name: 'Data Cleaning' },
+        { name: 'Statistical Analysis' },
       ],
     },
     {
@@ -102,39 +114,42 @@ export const PORTFOLIO_DATA = {
       description: 'Data ingestion, schema modeling, transformation, and automated warehousing.',
       items: [
         { name: 'ETL Pipelines' },
-        { name: 'Data Cleaning' },
-        { name: 'Data Warehousing' },
-        { name: 'Data Modeling' },
+        { name: 'Star Schema Modeling' },
+        { name: 'Data Ingestion' },
+        { name: 'Data Warehousing Concepts' },
       ],
     },
     {
-      title: 'Backend',
-      category: 'Backend',
-      description: 'Service architectures, RESTful APIs, and asynchronous execution.',
+      title: 'Backend Development',
+      category: 'Backend Development',
+      description: 'RESTful API design, asynchronous services, and server architecture.',
       items: [
         { name: 'FastAPI' },
         { name: 'Flask' },
         { name: 'Node.js' },
+        { name: 'Express' },
         { name: 'REST APIs' },
       ],
     },
     {
       title: 'Databases',
       category: 'Databases',
-      description: 'Relational data modeling, schema normalization, and ACID compliance.',
+      description: 'Relational data modeling, schema normalization, and ORM abstractions.',
       items: [
         { name: 'PostgreSQL' },
         { name: 'SQLite' },
+        { name: 'SQLAlchemy' },
       ],
     },
     {
-      title: 'Tools',
-      category: 'Tools',
-      description: 'Developer environments, version control, and collaboration workflows.',
+      title: 'Developer Tools',
+      category: 'Developer Tools',
+      description: 'Version control, developer environments, and deployment workflows.',
       items: [
         { name: 'Git' },
         { name: 'GitHub' },
         { name: 'VS Code' },
+        { name: 'Linux CLI' },
       ],
     },
   ] as SkillCategory[],
@@ -146,25 +161,27 @@ export const PORTFOLIO_DATA = {
       title: 'DataPulse — AI-Powered Business Analytics Platform',
       shortTitle: 'DataPulse',
       tagline: 'Full-stack analytics platform that automates sales ETL processing, warehouses data in a star schema, and delivers interactive analytics with an AI query assistant.',
-      category: 'Data Engineering',
+      category: 'Data Engineering & AI',
       badge: 'FULL-STACK // DATA & AI',
       description:
         'Full-stack analytics platform that automates sales ETL processing, warehouses data in a star schema, and delivers interactive analytics with an AI query assistant.',
       problemSolved:
-        'Replaces fragmented spreadsheets and error-prone manual calculations with an automated ETL pipeline, structured warehouse, and real-time analytical dashboards.',
+        'Replaces fragmented spreadsheets and manual calculations with an automated ETL pipeline, structured warehouse, and real-time analytical dashboards.',
+      whatIBuilt:
+        'Engineered an end-to-end data analytics system with automated Python ingestion, a 3NF star-schema PostgreSQL warehouse using SQLAlchemy, asynchronous FastAPI endpoints, and an interactive React 19 dashboard.',
       keyContribution:
-        'Engineered an automated Python validation and quarantine pipeline, modeled a 3NF star-schema warehouse with SQLAlchemy, and exposed KPI endpoints via async FastAPI to a React 19 dashboard.',
+        'Engineered an automated data cleaning and quarantine pipeline for invalid records, designed fact/dimension star schema tables, and built REST API query endpoints.',
       verifiedResults:
-        '38/38 automated Pytest test suite covering ETL validation, schema integrity, and API endpoints.',
+        '38/38 automated Pytests passed covering ETL transformations, database schema integrity, and API endpoint contracts.',
       architecture: [
-        'Automated Python and Pandas ETL pipeline with quarantine logic for corrupted rows',
+        'Automated Python/Pandas ETL pipeline with quarantine logic for corrupted records',
         'Relational star-schema data warehouse modeled with SQLAlchemy and PostgreSQL',
-        'Asynchronous FastAPI REST API service delivering sub-second KPI queries',
-        'Interactive React 19 client with real-time charts and natural language query assistance',
+        'Asynchronous FastAPI REST API service delivering structured KPI query responses',
+        'Interactive React 19 client with analytical charts and AI query assistance',
       ],
-      diagramSteps: ['Raw Sales CSV', 'FastAPI / Pandas ETL', 'Star Schema Warehouse', 'React 19 + AI Dashboard'],
-      metrics: ['38/38 Tests Passed (100%)', 'Star Schema Warehouse', 'Sub-second API Latency'],
-      technologies: ['Python', 'FastAPI', 'React 19', 'PostgreSQL', 'SQLAlchemy', 'Pandas', 'Vite'],
+      diagramSteps: ['Raw Sales CSV', 'FastAPI / Pandas ETL', 'Star Schema Warehouse', 'React 19 Dashboard'],
+      metrics: ['38/38 Pytests Passed', 'Star Schema Warehouse', 'FastAPI Concurrency'],
+      technologies: ['Python', 'FastAPI', 'React 19', 'PostgreSQL', 'SQLAlchemy', 'Pandas', 'TypeScript', 'Tailwind CSS'],
       githubUrl: 'https://github.com/Manoj-git17/DataPulse',
       liveDemoUrl: 'https://data-pulse-phi-six.vercel.app',
       videoPreviewPath: '/videos/datapulse-demo.mp4',
@@ -181,23 +198,25 @@ export const PORTFOLIO_DATA = {
       shortTitle: 'TaskFlow',
       tagline: 'AI-driven task management application using Google Gemini to break down complex goals into actionable daily schedules with productivity tracking.',
       category: 'Applied AI & SaaS',
-      badge: 'AI SAAS // GEMINI 1.5',
+      badge: 'AI SAAS // GEMINI',
       description:
         'AI-driven task management application using Google Gemini to break down complex goals into actionable daily schedules with productivity tracking.',
       problemSolved:
-        'Eliminates task paralysis and manual planning overhead by automating schedule synthesis and goal decomposition through structured LLM prompt workflows.',
+        'Reduces manual scheduling overhead by converting broad goals into structured daily tasks with automated priority decomposition.',
+      whatIBuilt:
+        'Built a full-stack SaaS task application with a React.js client, an Express.js backend, SQLite database persistence, and Google Gemini 1.5 prompt automation.',
       keyContribution:
-        'Integrated Google Gemini API with structured prompt templates for deterministic schedule generation, built Express.js auth & CRUD services, and integrated SQLite persistence.',
+        'Constructed structured prompt workflows for deterministic task breakdown, implemented JWT authentication for user sessions, and built RESTful CRUD endpoints.',
       verifiedResults:
-        '100% Deployed & live on Render cloud with verified JWT session auth and sub-second task synthesis.',
+        'Deployed live on Render cloud platform with persistent SQLite database state and authenticated user workflows.',
       architecture: [
         'Modular React.js & Vite client with responsive task boards and JWT state storage',
         'Node.js & Express.js REST API with authenticated endpoints and input validation',
-        'Google Gemini 1.5 prompt pipeline for goal decomposition and priority matrices',
+        'Google Gemini prompt pipeline for goal decomposition and priority matrices',
         'Relational SQLite database storing tasks, completion timestamps, and user profiles',
       ],
-      diagramSteps: ['React.js + Vite Client', 'Express & JWT Auth', 'Google Gemini 1.5 Engine', 'SQLite Store'],
-      metrics: ['100% Deployed & Live on Render', 'JWT Authentication Lifecycle', 'Sub-second Task Breakdown Engine'],
+      diagramSteps: ['React Client', 'Express & JWT Auth', 'Google Gemini Engine', 'SQLite Store'],
+      metrics: ['Deployed on Render', 'JWT Auth Sessions', 'Gemini Goal Decomposition'],
       technologies: ['React.js', 'Vite', 'Node.js', 'Express.js', 'SQLite', 'Google Gemini API', 'JWT'],
       githubUrl: 'https://github.com/Manoj-git17/ai-task-manager',
       liveDemoUrl: 'https://ai-task-manager-frontend-x3og.onrender.com',
@@ -210,65 +229,69 @@ export const PORTFOLIO_DATA = {
       ],
     },
     {
-      id: 'ml-classification-benchmarks',
+      id: 'ml-classification-workbench',
       title: 'Machine Learning Classification Project',
-      shortTitle: 'ML Classification Benchmarks',
+      shortTitle: 'ML Classification',
       tagline: 'Comparative machine learning classification testbed evaluating baseline algorithms with rigorous cross-validation.',
       category: 'Machine Learning',
       badge: 'APPLIED ML // BENCHMARK',
       description:
         'Comparative machine learning classification testbed evaluating baseline algorithms with rigorous cross-validation.',
       problemSolved:
-        'Addresses unstandardized evaluation and data leakage in baseline model comparisons by enforcing strict split isolation and stratified benchmarking.',
+        'Evaluates baseline classification models against standardized tabular datasets to compare predictive metrics with clean train/test isolation.',
+      whatIBuilt:
+        'Engineered a Python evaluation workbench implementing logistic regression, decision trees, and k-NN with stratified 5-fold cross-validation.',
       keyContribution:
-        'Built stratified 5-fold cross-validation runners, isolated feature scaling to guarantee zero leakage, and generated detailed ROC-AUC curves and confusion matrices.',
+        'Enforced strict isolation during feature scaling using Scikit-Learn transformers fitted only on training splits, generating confusion matrices and ROC-AUC curves.',
       verifiedResults:
-        'Empirically evaluated precision-recall trade-offs and inference timing benchmarks across baseline classifiers with zero data leakage.',
+        'Benchmarked precision, recall, and ROC-AUC metrics across algorithms using stratified 5-fold cross-validation.',
       architecture: [
-        'RobustScaler and StandardScaler feature transformation pipelines',
-        'Stratified K-Fold cross-validation execution harness',
+        'StandardScaler and RobustScaler feature transformation pipelines',
+        'Stratified 5-Fold cross-validation execution harness',
         'Precision-recall, ROC-AUC, and confusion matrix evaluation modules',
-        'Model interpretability rankings and transparent evaluation logs',
+        'Model comparison reports and metric visualization charts',
       ],
-      diagramSteps: ['Raw Tabular Data', 'Standard / Robust Scaler', 'Stratified 5-Fold Cross-Val', 'ROC-AUC & Precision Metrics'],
-      metrics: ['Stratified 5-Fold Validation', 'Zero Leakage Isolation', 'Sub-millisecond Inference'],
+      diagramSteps: ['Raw Tabular Data', 'Isolated Feature Scaler', 'Stratified 5-Fold CV', 'ROC-AUC & Precision Metrics'],
+      metrics: ['Stratified 5-Fold CV', 'Train/Test Split Isolation', 'Confusion Matrix Analysis'],
       technologies: ['Python', 'Scikit-Learn', 'Pandas', 'NumPy', 'Matplotlib'],
-      githubUrl: 'https://github.com/manoj-dev-ai/ml-classifier-lab',
-      liveDemoUrl: 'https://github.com/manoj-dev-ai/ml-classifier-lab#readme',
+      githubUrl: 'https://github.com/Manoj-git17/ML-Classification-Workbench',
+      liveDemoUrl: 'https://github.com/Manoj-git17/ML-Classification-Workbench#readme',
       videoPreviewPath: '/videos/mllab-demo.mp4',
       status: 'Completed',
       highlights: [
         'Strict isolation between training and evaluation splits',
         'Transparent metric comparisons across classification baselines',
-        'Sub-millisecond per-sample inference latency benchmarked',
+        'Systematic hyperparameter evaluation across models',
       ],
     },
     {
-      id: 'data-analytics-engine',
+      id: 'automated-data-pipeline',
       title: 'Automated Data Pipeline',
-      shortTitle: 'Automated Data Pipeline',
+      shortTitle: 'Data Pipeline',
       tagline: 'Modular Python data engineering pipeline for automated ingestion, schema validation, outlier detection, and statistical summary reporting.',
       category: 'Data Engineering',
       badge: 'DATA SYSTEMS // ETL',
       description:
         'Modular Python data engineering pipeline for automated ingestion, schema validation, outlier detection, and statistical summary reporting.',
       problemSolved:
-        'Eliminates manual boilerplate during exploratory data analysis through automated distribution profiling, type sanitization, and outlier detection.',
+        'Standardizes ingestion of heterogeneous tabular datasets to detect corrupted records and anomalies before warehouse insertion.',
+      whatIBuilt:
+        'Constructed a Python ETL pipeline supporting streaming chunk processing, schema validation, IQR outlier detection, and formatted Markdown profiling reports.',
       keyContribution:
-        'Constructed chunk-based tabular stream parsers, integrated IQR and Z-score outlier isolation algorithms, and produced automated HTML/Markdown summary reports.',
+        'Implemented chunk-based streaming to process datasets efficiently, built type-assertion routines, and generated automated audit summaries.',
       verifiedResults:
-        'Deterministic preprocessing with isolated transformation states and automated HTML/Markdown profiling dossiers.',
+        'Tested transformation logic and statistical anomaly detection on sample CSV datasets with reproducible execution.',
       architecture: [
-        'Streaming chunk parser supporting heterogeneous CSV and JSON files',
+        'Streaming chunk parser supporting heterogeneous CSV datasets',
         'Configurable schema validator enforcing strict type assertions',
         'IQR and Z-score statistical outlier detection algorithms',
-        'Automated report generator outputting structured markdown dossiers',
+        'Automated report generator outputting structured markdown logs',
       ],
-      diagramSteps: ['Streaming CSV / JSON', 'Type Validation Engine', 'IQR / Z-Score Outlier Filter', 'Markdown / HTML Dossier'],
-      metrics: ['Chunk-based Memory Efficiency', 'Deterministic Assertions', 'Automated Dossier Generation'],
-      technologies: ['Python', 'Pandas', 'NumPy', 'SQL'],
-      githubUrl: 'https://github.com/manoj-dev-ai/data-pipeline-insights',
-      liveDemoUrl: 'https://github.com/manoj-dev-ai/data-pipeline-insights#readme',
+      diagramSteps: ['Streaming CSV Ingestion', 'Schema Type Validator', 'IQR Outlier Filter', 'Structured Markdown Report'],
+      metrics: ['Chunk Streaming Ingestion', 'Type-Safe Validation', 'Automated Audit Reports'],
+      technologies: ['Python', 'Pandas', 'NumPy', 'SQL', 'SQLite'],
+      githubUrl: 'https://github.com/Manoj-git17/data-pipeline-insights',
+      liveDemoUrl: 'https://github.com/Manoj-git17/data-pipeline-insights#readme',
       videoPreviewPath: '/videos/pipeline-demo.mp4',
       status: 'Completed',
       highlights: [
@@ -278,69 +301,74 @@ export const PORTFOLIO_DATA = {
       ],
     },
     {
-      id: 'algo-structures-lab',
+      id: 'cpp-algorithmic-systems',
       title: 'Algorithmic Systems in C++',
-      shortTitle: 'Algorithmic Systems in C++',
+      shortTitle: 'C++ Systems',
       tagline: 'High-performance C++ implementation of fundamental data structures, graph traversals, and computational complexity benchmarks.',
       category: 'Systems & Algorithms',
       badge: 'SYSTEMS // C++17',
       description:
         'High-performance C++ implementation of fundamental data structures, graph traversals, and computational complexity benchmarks.',
       problemSolved:
-        'Solidifies deep mechanical sympathy for computer memory hierarchy, pointer safety, cache locality, and asymptotic algorithm efficiency.',
+        'Deepens understanding of memory management, pointer safety, and asymptotic computational efficiency in low-level systems.',
+      whatIBuilt:
+        'Developed a modern C++17 library of fundamental data structures, adjacency-list graph representations, and pathfinding algorithms (BFS, DFS, Dijkstra).',
       keyContribution:
-        'Developed generic template-based graph structures (BFS, DFS, Dijkstra), verified memory integrity with Valgrind (zero leaks), and benchmarked CPU cycle performance.',
+        'Utilized RAII resource management for memory safety, designed modular graph classes, and authored empirical timing benchmarks for asymptotic complexity.',
       verifiedResults:
-        'Valgrind-verified zero memory leaks and cache-friendly memory locality across extensive test suites.',
+        'Unit-tested pathfinding and traversal algorithms confirming asymptotic correctness across various graph topologies.',
       architecture: [
         'Modern C++17 template-based header implementations',
-        'Graph representations supporting shortest-path algorithms',
+        'Adjacency-list graph representation for shortest-path algorithms',
         'Automated unit test suite validating edge cases and pointer boundaries',
-        'Valgrind memory auditing harness ensuring leak-free allocation',
+        'Benchmarking harness measuring execution time across varying input sizes',
       ],
-      diagramSteps: ['C++17 Template Classes', 'Graph Data Structures', 'BFS / DFS / Dijkstra Traversals', 'Valgrind Leak Audit (0 Leaks)'],
-      metrics: ['Zero Memory Leaks (Valgrind)', 'O(V + E) Traversals', 'Modern C++17 Standard'],
-      technologies: ['C++', 'STL', 'CMake', 'Valgrind'],
-      githubUrl: 'https://github.com/manoj-dev-ai/algorithmic-systems',
-      liveDemoUrl: 'https://github.com/manoj-dev-ai/algorithmic-systems#readme',
+      diagramSteps: ['C++17 Template Classes', 'Graph Data Structures', 'BFS / DFS / Dijkstra', 'Traversal Test Suite'],
+      metrics: ['Modern C++17 RAII', 'O(V + E) Traversals', 'Unit Tested Graph Engine'],
+      technologies: ['C++', 'STL', 'CMake'],
+      githubUrl: 'https://github.com/Manoj-git17/cpp-algorithmic-systems',
+      liveDemoUrl: 'https://github.com/Manoj-git17/cpp-algorithmic-systems#readme',
       videoPreviewPath: '/videos/pipeline-demo.mp4',
       status: 'Completed',
       highlights: [
-        'Verified zero memory leaks using Valgrind analysis',
+        'Memory-safe RAII implementations of fundamental structures',
         'Clean separation of concerns with modern C++17 idioms',
-        'Empirical validation against theoretical Big-O curves',
+        'Empirical verification of graph traversal runtimes',
       ],
     },
   ] as Project[],
 
-  // Academic Milestones & Verified Recognition
   achievements: [
     {
-      title: 'DataPulse Pytest Test Suite Integrity',
-      category: 'Software Engineering',
-      metric: '38/38 Tests (100%)',
-      description: 'Comprehensive automated test coverage for ETL data validation, schema integrity assertions, and asynchronous FastAPI REST endpoints in continuous integration.',
+      title: '38/38 Automated Pytest Suite Passing',
+      category: 'TEST AUTOMATION',
+      metric: '38/38 PASSED',
+      description:
+        'Automated test suite verifying ETL validation, relational star schema queries, and FastAPI REST endpoints on the DataPulse repository.',
       date: '2026',
     },
     {
-      title: 'TaskFlow Production Cloud Deployment',
-      category: 'Applied AI & Cloud',
-      metric: 'Render SaaS Deployed',
-      description: 'Production full-stack SaaS with Google Gemini 1.5 API prompt pipelines, secure JWT token lifecycle, and persistent relational SQLite database.',
+      title: 'Production Deployments on Render & Vercel',
+      category: 'CLOUD DEPLOYMENT',
+      metric: 'DEPLOYED LIVE',
+      description:
+        'Configured full-stack microservices with automated GitHub CI/CD integration, persistent database schemas, and CORS security hardening.',
       date: '2026',
     },
     {
-      title: 'Deterministic Pipeline Transformation & Zero Leakage Validation',
-      category: 'Data Science & ML',
-      metric: 'Verified Isolation',
-      description: 'Engineered preprocessing pipelines with isolated evaluation splits ensuring zero data leakage, verified across Stratified K-Fold cross-validation runs.',
+      title: 'Isolated ML Preprocessing Pipeline',
+      category: 'DATA SCIENCE',
+      metric: 'SPLIT INTEGRITY',
+      description:
+        'Implemented strict train/test data separation using Scikit-Learn transformers fitted exclusively on training splits with stratified cross-validation.',
       date: '2026',
     },
     {
-      title: 'Valgrind Memory Audit Verification',
-      category: 'Systems & Algorithms',
-      metric: '0 Memory Leaks',
-      description: 'Engineered modern C++17 data structures and graph algorithms verified with Valgrind dynamic analysis for leak-free memory safety and cache locality.',
+      title: 'RAII Memory Management in C++17',
+      category: 'SYSTEMS RIGOR',
+      metric: 'STRUCTURED MEMORY',
+      description:
+        'Implemented graph traversals and tree structures in modern C++17 with RAII pointers and comprehensive edge-case test harnesses.',
       date: '2025 – 2026',
     },
   ],
@@ -348,7 +376,7 @@ export const PORTFOLIO_DATA = {
   education: {
     degree: 'B.Tech — Artificial Intelligence & Data Science',
     status: 'Undergraduate Engineering Student (3rd Semester)',
-    currentStatus: '3rd Semester',
+    currentStatus: '3rd Semester Undergraduate',
     expectedGraduation: '2029',
     timeline: '2025 – 2029',
     keyFocus: 'Data Structures, Algorithms, Mathematics, Database Systems, Machine Learning Foundations',

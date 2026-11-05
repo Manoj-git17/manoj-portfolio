@@ -1,12 +1,12 @@
 import React from 'react';
 import { PORTFOLIO_DATA } from '../data/portfolioData';
-import { Code2, Brain, Database, Server, HardDrive, Wrench, ArrowUpRight } from 'lucide-react';
+import { Code2, Brain, BarChart3, Database, Server, HardDrive, Wrench, ArrowUpRight } from 'lucide-react';
 
 export const Toolkit: React.FC = () => {
-  const categoryIcons = [Code2, Brain, Database, Server, HardDrive, Wrench];
+  const categoryIcons = [Code2, Brain, BarChart3, Database, Server, HardDrive, Wrench];
 
-  // Highlights to emphasize primary strengths in yellow
-  const primarySkills = new Set(['Python', 'Machine Learning', 'ETL Pipelines', 'FastAPI', 'PostgreSQL', 'Git']);
+  // Primary technologies emphasized in signature yellow
+  const primarySkills = new Set(['Python', 'Machine Learning', 'Pandas', 'ETL Pipelines', 'FastAPI', 'PostgreSQL', 'Git']);
 
   return (
     <section
@@ -21,7 +21,7 @@ export const Toolkit: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 font-mono text-[11px] sm:text-[12px] uppercase tracking-[0.2em] text-[#6B6862] mb-3">
               <span className="w-2.5 h-2.5 bg-[#FFD60A] border border-[#0E0E0E]"></span>
-              <span>CHAPTER 03 // TECHNICAL SKILLS</span>
+              <span>CHAPTER 04 // TECHNICAL SKILLS</span>
             </div>
 
             <h2 className="font-display uppercase text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-tight text-[#0E0E0E] leading-[0.95]">
@@ -33,12 +33,12 @@ export const Toolkit: React.FC = () => {
           </div>
 
           <p className="mt-4 md:mt-0 font-mono text-xs sm:text-sm text-[#6B6862] max-w-sm uppercase tracking-wider leading-relaxed">
-            Organized by discipline. Core competencies applied across machine learning, data engineering, and backend architectures.
+            Organized across 7 core disciplines. Every listed technology reflects concepts and tooling applied in codebases.
           </p>
         </div>
 
-        {/* 6 Clean Recruiter-Friendly Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        {/* 7 Clean Recruiter-Friendly Categories */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
           {PORTFOLIO_DATA.skillCategories.map((cat, idx) => {
             const Icon = categoryIcons[idx % categoryIcons.length];
             return (
@@ -48,14 +48,14 @@ export const Toolkit: React.FC = () => {
               >
                 <div>
                   {/* Category Header */}
-                  <div className="flex items-center justify-between pb-3 border-b border-[#0E0E0E]/15 mb-5">
+                  <div className="flex items-center justify-between pb-3 border-b border-[#0E0E0E]/15 mb-4">
                     <span className="font-mono text-[10px] tracking-widest text-[#6B6862] font-bold">
-                      0{idx + 1} // DOMAIN
+                      0{idx + 1} // DISCIPLINE
                     </span>
                     <Icon className="w-4 h-4 text-[#0E0E0E]" />
                   </div>
 
-                  <h3 className="font-display uppercase text-2xl sm:text-3xl text-[#0E0E0E] tracking-tight mb-2">
+                  <h3 className="font-display uppercase text-xl sm:text-2xl text-[#0E0E0E] tracking-tight mb-2">
                     {cat.title}
                   </h3>
 
@@ -63,7 +63,7 @@ export const Toolkit: React.FC = () => {
                     {cat.description}
                   </p>
 
-                  {/* Clean Skill Chips */}
+                  {/* Clean Skill Chips - No arbitrary percentages */}
                   <div className="flex flex-wrap gap-2">
                     {cat.items.map((skill) => {
                       const isPrimary = primarySkills.has(skill.name);
@@ -89,9 +89,9 @@ export const Toolkit: React.FC = () => {
                 </div>
 
                 {/* Card Footer Index */}
-                <div className="pt-5 mt-6 border-t border-[#0E0E0E]/10 flex items-center justify-between font-mono text-[10px] text-[#6B6862] uppercase tracking-wider">
+                <div className="pt-4 mt-6 border-t border-[#0E0E0E]/10 flex items-center justify-between font-mono text-[10px] text-[#6B6862] uppercase tracking-wider">
                   <span>CATEGORY 0{idx + 1}</span>
-                  <span className="text-[#0E0E0E] font-bold">VERIFIED APPLIED</span>
+                  <span className="text-[#0E0E0E] font-bold">APPLIED IN PROJECTS</span>
                 </div>
               </div>
             );
@@ -102,7 +102,7 @@ export const Toolkit: React.FC = () => {
         <div className="mt-12 sm:mt-16 p-6 rounded-2xl bg-[#0E0E0E] text-[#F2EFE6] flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
           <div className="space-y-1">
             <span className="font-mono text-[10px] tracking-widest text-[#FFD60A] uppercase font-bold">
-              ENGINEERING RIGOR // 03
+              ENGINEERING PHILOSOPHY // 04
             </span>
             <p className="font-serif italic text-xl sm:text-2xl text-[#F2EFE6]">
               &ldquo;Writing maintainable, well-tested code with clean separation of concerns and reproducible pipelines.&rdquo;

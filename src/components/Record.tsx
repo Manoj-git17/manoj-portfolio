@@ -4,10 +4,10 @@ import { BookOpen, CheckCircle, GraduationCap, Award, Clock, Check, Terminal } f
 
 export const Record: React.FC = () => {
   const stats = [
-    { number: String(PORTFOLIO_DATA.projects.length).padStart(2, '0'), label: 'Systems Built', sublabel: 'Applied AI, data engineering & full-stack applications' },
-    { number: '38/38', label: 'Pytest Suite', sublabel: 'Automated test suite passing on DataPulse backend' },
-    { number: 'C++17', label: 'Algorithmic Rigor', sublabel: 'Valgrind-verified memory safety and benchmarks' },
-    { number: '2029', label: 'B.Tech AI & DS', sublabel: '3rd Semester candidate, Bengaluru, India' },
+    { number: String(PORTFOLIO_DATA.projects.length).padStart(2, '0'), label: 'Systems Built', sublabel: 'Data pipelines, applied AI & full-stack applications' },
+    { number: '38/38', label: 'Pytest Suite', sublabel: 'Automated tests passing on DataPulse backend' },
+    { number: '07', label: 'Technical Domains', sublabel: 'Machine learning, data systems & backend APIs' },
+    { number: '2029', label: 'B.Tech AI & DS', sublabel: '3rd Semester undergraduate, Bengaluru, India' },
   ];
 
   const chronologicalTimeline = [
@@ -22,12 +22,12 @@ export const Record: React.FC = () => {
     },
     {
       period: '2025 – 2026',
-      title: 'Algorithmic Systems & Computational Graph Lab',
+      title: 'Algorithmic Systems & Graph Traversal Lab',
       badge: 'SYSTEMS // C++17',
       category: 'Data Structures',
       description:
-        'Engineered leak-free modern C++17 implementations of balanced search trees, graph algorithms (BFS, DFS, Dijkstra), and empirical Big-O benchmarks.',
-      deliverables: ['Valgrind-verified 0 memory leaks', 'O(V + E) shortest paths', 'Cache-friendly locality'],
+        'Engineered modern C++17 implementations of fundamental data structures, graph representations, and pathfinding algorithms (BFS, DFS, Dijkstra).',
+      deliverables: ['Modern C++17 RAII pointers', 'O(V + E) shortest paths', 'Asymptotic complexity benchmarks'],
     },
     {
       period: 'EARLY 2026',
@@ -35,8 +35,8 @@ export const Record: React.FC = () => {
       badge: 'DATA PIPELINE',
       category: 'Data Engineering',
       description:
-        'Constructed a deterministic Python pipeline for processing tabular datasets with chunk-based streaming, schema type-safety validation, and statistical outlier filtering.',
-      deliverables: ['Streaming chunk processing', 'IQR & Z-score anomaly detection', 'Deterministic transforms'],
+        'Constructed a deterministic Python pipeline for processing tabular datasets with chunk-based streaming, schema type assertions, and statistical outlier filtering.',
+      deliverables: ['Streaming chunk processing', 'IQR & Z-score outlier detection', 'Deterministic transforms'],
     },
     {
       period: 'MID 2026',
@@ -44,8 +44,8 @@ export const Record: React.FC = () => {
       badge: 'APPLIED AI',
       category: 'Machine Learning',
       description:
-        'Conducted comparative classification benchmarks across logistic regression, decision trees, and k-NN. Enforced strict data leakage boundaries.',
-      deliverables: ['Stratified 5-Fold validation', 'Sub-millisecond inference (<0.8ms)', 'ROC-AUC & F1 metrics'],
+        'Conducted comparative classification benchmarks across logistic regression, decision trees, and k-NN with strict train/test split isolation during feature scaling.',
+      deliverables: ['Stratified 5-Fold validation', 'Feature transformation pipelines', 'ROC-AUC & confusion matrix metrics'],
     },
     {
       period: '2026 · FLAGSHIP',
@@ -53,7 +53,7 @@ export const Record: React.FC = () => {
       badge: 'PRODUCTION SYSTEM',
       category: 'Full-Stack & Warehousing',
       description:
-        'Designed, implemented, tested, and publicly deployed a complete sales intelligence platform. Relational star schema warehouse, asynchronous FastAPI REST endpoints, and interactive React 19 dashboards.',
+        'Designed, implemented, tested, and publicly deployed a complete business analytics platform. Relational star schema warehouse, asynchronous FastAPI REST endpoints, and interactive React 19 dashboards.',
       deliverables: ['38/38 automated tests passing', 'Star schema data warehouse', 'Live on Vercel & Render'],
     },
     {
@@ -73,28 +73,28 @@ export const Record: React.FC = () => {
       tag: 'TEST AUTOMATION',
       metric: '38/38 PASSED',
       description:
-        'Engineered comprehensive end-to-end integration and unit test suite covering ETL data transformations, API endpoint contracts, and warehouse queries with zero regressions.',
+        'Automated test suite verifying ETL validation, relational star schema queries, and FastAPI REST endpoints on the DataPulse repository.',
     },
     {
       title: 'Production Deployments on Render & Vercel',
       tag: 'CLOUD DEPLOYMENT',
-      metric: '100% LIVE',
+      metric: 'DEPLOYED LIVE',
       description:
-        'Successfully configured and deployed full-stack microservices with automated GitHub CI/CD integration, persistent database schemas, and CORS security hardening.',
+        'Configured full-stack microservices with automated GitHub CI/CD integration, persistent database schemas, and CORS security hardening.',
     },
     {
-      title: 'Zero-Leakage ML Preprocessing Pipeline',
+      title: 'Isolated ML Preprocessing Pipeline',
       tag: 'DATA SCIENCE',
-      metric: 'STRICT ISOLATION',
+      metric: 'SPLIT INTEGRITY',
       description:
-        'Implemented strict train/test data leakage isolation protocols using Scikit-Learn transformers fitted exclusively on training splits with stratified cross-validation.',
+        'Implemented strict train/test data separation using Scikit-Learn transformers fitted exclusively on training splits with stratified cross-validation.',
     },
     {
-      title: 'Valgrind-Verified C++17 Memory Management',
+      title: 'Structured C++17 Resource Management',
       tag: 'SYSTEMS RIGOR',
-      metric: '0 MEMORY LEAKS',
+      metric: 'RAII PATTERNS',
       description:
-        'Engineered high-performance graph traversals and tree structures in modern C++17 with RAII pointers, verified with Valgrind profiling tools.',
+        'Implemented graph traversals and tree structures in modern C++17 with RAII pointers and comprehensive edge-case test harnesses.',
     },
   ];
 
@@ -266,7 +266,7 @@ export const Record: React.FC = () => {
           </div>
         </div>
 
-        {/* ACHIEVEMENTS & RECOGNITION (Replacing placeholder endorsements) */}
+        {/* ACHIEVEMENTS & RECOGNITION */}
         <div className="pt-8 border-t-2 border-[#0E0E0E]">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-8 pb-4 border-b border-[#0E0E0E]/20">
             <div>

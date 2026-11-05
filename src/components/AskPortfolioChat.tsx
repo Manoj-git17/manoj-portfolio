@@ -124,7 +124,7 @@ function generateGroundedFallbackResponse(userPrompt: string): string {
 • **Languages:** Python (Primary for data & ML), JavaScript / TypeScript, C++ (Algorithms & systems).
 • **Frameworks & Web:** React 19, FastAPI, Express.js / Node.js, Tailwind CSS, Vite, Google Gemini API.
 • **Data & Storage:** SQL, PostgreSQL, SQLite, SQLAlchemy, Pandas, NumPy.
-• **Engineering Practices:** Git/GitHub version control, strict type safety, automated Pytest suites, zero-leakage ML pipelines.`;
+• **Engineering Practices:** Git/GitHub version control, strict type safety, automated Pytest suites, isolated ML preprocessing pipelines.`;
   }
 
   // 5. Education & Background

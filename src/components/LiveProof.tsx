@@ -262,9 +262,9 @@ export const LiveProof: React.FC = () => {
             <div className="p-4 rounded-2xl bg-[#141418]/80 backdrop-blur-md border border-[#FFD60A]/30 flex items-center justify-between font-mono text-xs">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#FFD60A] animate-ping" />
-                <span className="text-[#FFD60A] font-bold">3D CONTRIBUTION BAR-CITY ACTIVE</span>
+                <span className="text-[#FFD60A] font-bold">3D CONTRIBUTION CITY ACTIVE</span>
               </div>
-              <span className="text-[#F2EFE6]/60 text-[11px]">112 BARS IN VIEWPORT</span>
+              <span className="text-[#F2EFE6]/60 text-[11px]">SCROLL-DRIVEN 3D VIEW</span>
             </div>
 
             {/* 30-Day Contribution Density Matrix */}
@@ -272,9 +272,9 @@ export const LiveProof: React.FC = () => {
               <div className="flex items-center justify-between border-b border-[#F2EFE6]/10 pb-3">
                 <span className="font-mono text-xs font-bold uppercase text-[#FFD60A] flex items-center gap-2">
                   <GitPullRequest className="w-4 h-4 text-[#FFD60A]" />
-                  <span>COMMIT HEATMAP DENSITY</span>
+                  <span>COMMIT CADENCE OVERVIEW</span>
                 </span>
-                <span className="font-mono text-[10px] text-[#F2EFE6]/50">30-DAY CYCLES</span>
+                <span className="font-mono text-[10px] text-[#F2EFE6]/50">RECENT CYCLES</span>
               </div>
 
               {/* Heatmap Grid with Mobile Horizontal Scroll Safety */}

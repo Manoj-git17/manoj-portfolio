@@ -48,38 +48,44 @@ EDUCATION:
 - Key Focus: Data Structures, Algorithms, Mathematics, Relational Databases, Machine Learning Foundations
 
 TECHNICAL SKILLS:
-- Programming: Python, C++, JavaScript, TypeScript, SQL
-- AI & Data Science: Machine Learning, Pandas, NumPy, Data Analysis, Feature Engineering, Model Evaluation
-- Data Engineering: ETL Pipelines, Data Cleaning, Data Warehousing, Data Modeling
-- Backend: FastAPI, Flask, Node.js, REST APIs
-- Databases: PostgreSQL, SQLite
-- Tools: Git, GitHub, VS Code
+- Programming Languages: Python, C++, SQL, JavaScript, TypeScript
+- AI & Machine Learning: Machine Learning, Scikit-Learn, Feature Engineering, Model Evaluation, Gemini API
+- Data Science & Analytics: Exploratory Data Analysis, Pandas, NumPy, Data Cleaning, Statistical Analysis
+- Data Engineering: ETL Pipelines, Star Schema Modeling, Data Ingestion, Data Warehousing Concepts
+- Backend Development: FastAPI, Flask, Node.js, Express, REST APIs
+- Databases: PostgreSQL, SQLite, SQLAlchemy
+- Developer Tools: Git, GitHub, VS Code, Linux CLI
 
 SELECTED PROJECTS:
 1. DataPulse — AI-Powered Business Analytics Platform
-   Stack: Python, FastAPI, React 19, TypeScript, PostgreSQL, SQLAlchemy, Tailwind CSS
-   - Architected end-to-end sales intelligence platform with automated ETL and star schema data warehouse.
-   - Verified 38/38 automated Pytests passed with 100% CI pass rate.
+   Stack: Python, FastAPI, React 19, TypeScript, PostgreSQL, SQLAlchemy, Pandas, Tailwind CSS
+   - Problem: Eliminates manual spreadsheet calculations and disparate CSV reports.
+   - Built: Full-stack analytics system with automated Python ingestion, a 3NF star-schema warehouse, async FastAPI REST endpoints, and an interactive React 19 dashboard.
+   - Verified Results: 38/38 automated Pytests passed covering ETL validation, schema integrity, and API endpoint contracts.
 
-2. TaskFlow — AI-Powered Task Management SaaS
-   Stack: React 19, Node.js, Express, SQLite, Google Gemini 1.5, JWT
-   - Integrated Google Gemini 1.5 prompt pipeline for automated daily task synthesis and productivity analytics.
-   - Deployed full-stack SaaS live on Render cloud platform.
+2. TaskFlow — AI-Powered Task Management
+   Stack: React.js, Vite, Node.js, Express.js, SQLite, Google Gemini API, JWT
+   - Problem: Reduces manual scheduling friction by converting broad goals into structured daily tasks.
+   - Built: Full-stack task management application with React.js frontend, Express.js backend, SQLite persistence, and Google Gemini API integration.
+   - Verified Results: Deployed live on Render cloud platform with persistent SQLite database state and authenticated workflows.
 
 3. Machine Learning Classification Project
    Stack: Python, Scikit-Learn, Pandas, NumPy, Matplotlib
-   - Built comparative classification benchmark evaluating models using stratified 5-fold cross-validation.
-   - Enforced strict data leakage boundaries with sub-millisecond inference latency.
+   - Problem: Evaluates baseline classification models against standardized tabular datasets to compare predictive metrics.
+   - Built: Python evaluation workbench implementing logistic regression, decision trees, and k-NN with stratified 5-fold cross-validation.
+   - Verified Results: Benchmarked precision, recall, and ROC-AUC metrics with strict train/test split isolation.
 
 4. Automated Data Pipeline
-   Stack: Python, Pandas, SQLite, Logging, OS
-   - Implemented streaming chunk processor with schema type validation, IQR outlier detection, and automated logs.
-   - Deterministic transform logic preventing anomalous record ingestion.
+   Stack: Python, Pandas, NumPy, SQL, SQLite
+   - Problem: Standardizes ingestion of heterogeneous tabular files to detect corrupted records before database loading.
+   - Built: Modular Python ETL pipeline supporting streaming chunk processing, schema validation, and summary reporting.
+   - Verified Results: Tested transformation logic and statistical anomaly detection on sample CSV datasets.
 
 5. Algorithmic Systems in C++
-   Stack: Modern C++17, STL, Valgrind, Make / CMake
-   - Developed leak-free balanced search trees and graph algorithms (BFS, DFS, Dijkstra) with Valgrind verification.
-   - Benchmarked asymptotic time and spatial complexity across large datasets.
+   Stack: Modern C++17, STL, CMake
+   - Problem: Explores fundamental data structures and graph traversal performance with low-level memory control.
+   - Built: C++17 library of balanced search trees, graph representations, and pathfinding algorithms (BFS, DFS, Dijkstra).
+   - Verified Results: Unit-tested pathfinding algorithms confirming asymptotic correctness and RAII resource safety.
 `.trim();
 
     navigator.clipboard.writeText(resumeText);
@@ -197,7 +203,7 @@ SELECTED PROJECTS:
             </div>
           </div>
 
-          {/* Technical Skills: 6 Clean Categories */}
+          {/* Technical Skills: 7 Clean Categories */}
           <div className="space-y-2.5 sm:space-y-3">
             <h2 className="text-[11.5px] sm:text-[13px] font-mono uppercase tracking-wider text-[#86868B] border-b border-black/[0.06] pb-1.5 font-bold">
               TECHNICAL SKILLS
@@ -205,39 +211,45 @@ SELECTED PROJECTS:
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 sm:gap-4 text-[13.5px] sm:text-[14px]">
               <div>
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
-                  Programming:
+                  Programming Languages:
                 </strong>
-                <p className="text-[#555558]">Python, C++, JavaScript, TypeScript, SQL</p>
+                <p className="text-[#555558]">Python, C++, SQL, JavaScript, TypeScript</p>
               </div>
               <div>
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
-                  AI &amp; Data Science:
+                  AI &amp; Machine Learning:
                 </strong>
-                <p className="text-[#555558]">Machine Learning, Pandas, NumPy, Data Analysis, Feature Engineering, Model Evaluation</p>
+                <p className="text-[#555558]">Machine Learning, Scikit-Learn, Feature Engineering, Model Evaluation, Gemini API</p>
+              </div>
+              <div>
+                <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
+                  Data Science &amp; Analytics:
+                </strong>
+                <p className="text-[#555558]">Exploratory Data Analysis, Pandas, NumPy, Data Cleaning, Statistical Analysis</p>
               </div>
               <div>
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
                   Data Engineering:
                 </strong>
-                <p className="text-[#555558]">ETL Pipelines, Data Cleaning, Data Warehousing, Data Modeling</p>
+                <p className="text-[#555558]">ETL Pipelines, Star Schema Modeling, Data Ingestion, Data Warehousing Concepts</p>
               </div>
               <div>
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
-                  Backend:
+                  Backend Development:
                 </strong>
-                <p className="text-[#555558]">FastAPI, Flask, Node.js, REST APIs</p>
+                <p className="text-[#555558]">FastAPI, Flask, Node.js, Express, REST APIs</p>
               </div>
               <div>
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
                   Databases:
                 </strong>
-                <p className="text-[#555558]">PostgreSQL, SQLite</p>
+                <p className="text-[#555558]">PostgreSQL, SQLite, SQLAlchemy</p>
               </div>
-              <div>
+              <div className="sm:col-span-2">
                 <strong className="font-semibold text-[#1D1D1F] block text-[12.5px] sm:text-[13px] mb-0.5 font-mono">
-                  Tools:
+                  Developer Tools:
                 </strong>
-                <p className="text-[#555558]">Git, GitHub, VS Code</p>
+                <p className="text-[#555558]">Git, GitHub, VS Code, Linux CLI</p>
               </div>
             </div>
           </div>
